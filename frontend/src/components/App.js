@@ -1,6 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
 import Header from './Header.js'
+import HeaderAddPost from './HeaderAddPost.js'
 import Plate from './Plate.js'
 import Navigation from './Navigation.js'
 import AddPost from './AddPost.js'
@@ -19,7 +20,7 @@ class App extends Component{
         	/>
         	<Route exact path='/add' render={()=> (
         		<div>
-        			<Header/>
+        			<HeaderAddPost/>
         			<AddPost/>
         		</div>
         		)}

@@ -59,7 +59,7 @@ body {
   border-radius: 18px;
   color: #ffffff;
   font-size: 14px;
-  padding: 12px 20px 10px 20px;
+  padding: 12px 20px 26px 20px;
   text-decoration: none;
   cursor: pointer;
   box-shadow: 2px 2px 2px #444445;
@@ -171,4 +171,42 @@ body {
 
 .snap{
   margin-top: 20px;
+}
+
+/* AppPost*/
+input.author, input.title{
+    outline: none;
+    outline-style: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #eeeeee 1px;
+    padding: 3px 10px;
+    margin: 20px 0;
+   }
+
+input.title{
+  font-size: 30px;
+}
+
+input.author, textarea{
+  color: black;
+}
+
+.containter-post{
+    margin: 40px auto;
+    max-width: 90%;
+  }
+
+textarea{
+  margin-top: 20px;
+  font-size: 15px;
+  padding: 10px;
+  width: 100%;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Component} from 'react'
-import Header from './Header.js'
 import {Link} from 'react-router-dom'
 
 class AddPost extends Component{

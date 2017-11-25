@@ -6,8 +6,14 @@ import Plate from './Plate.js'
 import Navigation from './Navigation.js'
 import AddPost from './AddPost.js'
 import {Route} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getCategories } from '../actions/categories';
 
 class App extends Component{
+      componentDidMount() {
+    this.props.getCategories();
+  }
     render(){
         return (<div>
         	<Route exact path='/' render={()=>(
@@ -29,5 +35,7 @@ class App extends Component{
     }
 }
 
-export default App;
+export default withRouter(connect(undefined,
+  { getCategories: getCategories }
+)(App));
 

@@ -1,11 +1,12 @@
 import * as API from '../utils/API'
-import {GET_CATEGORIES} from 'constants'
+import { GET_CATEGORIES } from './types'
 
-export const getCategories = () => {
-  return (dispatch) => {
-    API.getCategories().then(res => {
-      dispatch({ type: GET_CATEGORIES, res })
-    })
-  }
-}
+export const receiveCategories = categories => ({
+  type: GET_CATEGORIES,
+  categories
+});
 
+export const getCategories = () => dispatch => (
+	API.fetchCategories()
+	.then(categories => dispatch(receiveCategories(categories)))
+	);

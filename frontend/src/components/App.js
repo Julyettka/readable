@@ -1,5 +1,5 @@
 import React from 'react'
-import {Component} from 'react'
+import { Component } from 'react'
 import Header from './Header.js'
 import HeaderAddPost from './HeaderAddPost.js'
 import Plate from './Plate.js'
@@ -12,7 +12,8 @@ import { getCategories } from '../actions/categories';
 
 class App extends Component{
       componentDidMount() {
-    this.props.getCategories();
+    console.log(this.props.getCategories());
+    //console.log(this.props);
   }
     render(){
         return (<div>

@@ -6,16 +6,24 @@ import { connect } from 'react-redux'
 
 class Navigation extends Component{
 	componentDidMount() {
-        let categories = this.props.fetchCategories()
-        .then((data) => {
-            return data.categories;
-        });     
-    }
+        this.props.getCategories() 
+    } 
+
 	render(){
-		return(<ul className="upper-nav"></ul>)
+		const categories = this.props.categories || [];
+		console.log( categories);
+		return(<ul className="upper-nav">
+			{categories.map((category) =>
+				<li key={category.path}>{category.name}</li>
+			)}
+			</ul>)
 	}
 }
-
-export default withRouter(connect(undefined,
-  { fetchCategories: getCategories }
+function mapStateToProps({categories}){
+	return {
+		categories
+	}
+}
+export default withRouter(connect(mapStateToProps,
+  { getCategories }
 )(Navigation));

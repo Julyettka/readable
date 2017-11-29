@@ -11,10 +11,7 @@ import { connect } from 'react-redux'
 import { getCategories } from '../actions/categories';
 
 class App extends Component{
-      componentDidMount() {
-    console.log(this.props.getCategories());
-    //console.log(this.props);
-  }
+
     render(){
         return (<div>
         	<Route exact path='/' render={()=>(
@@ -37,6 +34,6 @@ class App extends Component{
 }
 
 export default withRouter(connect(undefined,
-  { getCategories: getCategories }
+  { fetchCategories: getCategories }
 )(App));
 

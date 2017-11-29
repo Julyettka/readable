@@ -1,9 +1,21 @@
 import React from 'react'
+import { Component } from 'react'
+import { getCategories } from '../actions/categories'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const categories = ['All', 'Art', 'Businness', 'Education'];
+class Navigation extends Component{
+	componentDidMount() {
+        let categories = this.props.fetchCategories()
+        .then((data) => {
+            return data.categories;
+        });     
+    }
+	render(){
+		return(<ul className="upper-nav"></ul>)
+	}
+}
 
-const Navigation = () => (React.createElement('ul', {className: "upper-nav"},
-	categories.map((category, index) => (React.createElement('li', {key: index}, category))))
-	)
-
-export default Navigation;
+export default withRouter(connect(undefined,
+  { fetchCategories: getCategories }
+)(Navigation));

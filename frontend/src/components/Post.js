@@ -11,7 +11,6 @@ class Post extends Component{
 	}
 	render(){
 		const posts = this.props.posts || [];
-		console.log(posts);
 		return(
 			<ul className="container-plate">
 			{posts.map((post) =>
@@ -20,7 +19,8 @@ class Post extends Component{
 			        <div className="title">{post.title}</div>
 			        <div className="author">{post.author}</div>
 			        <div className="snap">{post.body}</div>
-			        <div className="vote">{post.voteScore}</div>
+			        <div className="vote"><i className="fa fa-thumbs-up" aria-hidden="true"></i>
+			        {post.voteScore}</div>
 	    		</li>
 	    		)}
 	    	</ul>)

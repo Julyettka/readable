@@ -8,3 +8,9 @@ export const fetchCategories = () => {
     .then(res => res.json())
     .then(data => data.categories);
 }
+
+export const fetchPosts = () => {
+	return fetch(`${URL}/posts`, {headers: header})
+	.then(res => res.json())
+	.then(data => data);
+}

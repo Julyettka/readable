@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import Header from './Header.js'
 import HeaderAddPost from './HeaderAddPost.js'
-import Plate from './Plate.js'
+import Post from './Post.js'
 import Navigation from './Navigation.js'
 import AddPost from './AddPost.js'
 import {Route} from 'react-router-dom'
@@ -18,7 +18,7 @@ class App extends Component{
         		<div>
 		            <Header/>
 		            <Navigation/>
-		            <div className="container-plate"><Plate/></div>
+		            <div className="container-plate"><Post/></div>
 		        </div>
         	)}
         	/>

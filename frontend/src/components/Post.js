@@ -17,8 +17,9 @@ class Post extends Component{
 				<li key={post.id} className="post-plate">
 			        <div className="date">{post.timestamp}</div>
 			        <div className="title">{post.title}</div>
-			        <div className="author">{post.author}</div>
+			        <div className="author">by {post.author}</div>
 			        <div className="snap">{post.body}</div>
+			        <div className="category">{post.category}</div>
 			        <div className="vote"><i className="fa fa-thumbs-up" aria-hidden="true"></i>
 			        {post.voteScore}</div>
 	    		</li>

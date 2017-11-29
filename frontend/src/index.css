@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -174,11 +175,6 @@ body {
   margin-top: 20px;
 }
 
-.vote{
-  position: absolute;
-  bottom: 10%;
-  left: 80%;
-}
 
 @font-face {
   font-family: 'FontAwesome';
@@ -204,11 +200,23 @@ body {
 .fa-thumbs-up:before {
   color: #3bda22;
   content: "\f164";
-  padding: 6px;
+  padding: 0 6px;
 }
 
 .fa-thumbs-up:hover{
   cursor: pointer;
+}
+
+.category{
+  position: absolute;
+  bottom: 15px;
+  color: rgb(2, 179, 228);
+}
+
+.vote{
+  position: absolute;
+  bottom: 15px;
+  left: 80%;
 }
 
 /* AppPost*/

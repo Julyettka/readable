@@ -8,19 +8,22 @@ import {getPosts} from '../actions/posts'
 class Post extends Component{
 	componentDidMount(){
 		this.props.getPosts()
-		console.log(this.props.getPosts());
 	}
 	render(){
-		const posts = [] || this.props.posts;
+		const posts = this.props.posts || [];
 		console.log(posts);
 		return(
-			<div className="post-plate">
-		        <div className="date">10 oct 2018</div>
-		        <div className="title">New Post</div>
-		        <div className="author">D. Julia Holmes</div>
-		        <div className="snap">Bla bla bla, I'm taking a cat</div>
-		        <div className="vote">2</div>
-    		</div>)
+			<ul className="container-plate">
+			{posts.map((post) =>
+				<li key={post.id} className="post-plate">
+			        <div className="date">{post.timestamp}</div>
+			        <div className="title">{post.title}</div>
+			        <div className="author">{post.author}</div>
+			        <div className="snap">{post.body}</div>
+			        <div className="vote">{post.voteScore}</div>
+	    		</li>
+	    		)}
+	    	</ul>)
 	}
 }
 

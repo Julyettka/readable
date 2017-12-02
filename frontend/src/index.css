@@ -155,10 +155,10 @@ body {
 
 .date{
   position: absolute;
-  top: 20px;
-  left: 70%;
+  top: 10px;
+  left: 20px;
   color: gray;
-  font-size: 0.9em;
+  font-size: 0.7em;
 }
 
 .title{

@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import {getPosts} from '../actions/posts'
+import moment from 'moment'
 
 
 class Post extends Component{
@@ -10,19 +11,14 @@ class Post extends Component{
 		this.props.getPosts()
 	}
 
-	 convertDate = (timestamp) => {
-		let date = new Date();
-		date.setSeconds(timestamp);
-	 	console.log(date);
-		//return date; how to return value?
-	}
+
 	render(){
 		const posts = this.props.posts || [];
 		return(
 			<ul className="container-plate">
 			{posts.map((post) =>
 				<li key={post.id} className="post-plate">
-			        <div className="date">{this.convertDate(post.timestamp)}</div>
+			        <div className="date">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
 			        <div className="title">{post.title}</div>
 			        <div className="author">by {post.author}</div>
 			        <div className="snap">{post.body}</div>

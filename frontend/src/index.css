@@ -5,6 +5,12 @@ body {
   font-family: Lustria;
 }
 
+button{
+  outline: none;
+  cursor: pointer;
+}
+
+
 @font-face {
     font-family: Penguin;
     src: url(fonts/PenguinAttack.ttf);
@@ -76,11 +82,6 @@ body {
   text-decoration: none;
 }
 
-.post-button:active {
-  position: relative;
-  top: 1px;
-}
-
 .upper-nav{
   color: rgb(2, 179, 228);
   font-size: 20px;
@@ -96,6 +97,10 @@ body {
 }
 .upper-nav li:hover{
   color: rgb(1, 146, 186);
+}
+
+.selected{
+  border-bottom: 2px solid #34bf1f;
 }
 /* plate */
 
@@ -180,9 +185,9 @@ body {
   font-family: 'FontAwesome';
   src: url('fonts/fontawesome-webfont.eot?v=4.7.0');
   src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
-  url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), 
-  url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), 
-  url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), 
+  url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),
+  url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),
+  url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),
   url('fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;

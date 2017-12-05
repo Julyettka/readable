@@ -3,7 +3,7 @@ import { Component } from 'react'
 import Header from './Header.js'
 import HeaderAddPost from './HeaderAddPost.js'
 import Post from './Post.js'
-import Navigation from './Navigation.js'
+import NavCategories from './NavCategories.js'
 import AddPost from './AddPost.js'
 import {Route} from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
@@ -17,7 +17,7 @@ class App extends Component{
         	<Route exact path='/' render={()=>(
         		<div>
 		            <Header/>
-		            <Navigation/>
+		            <NavCategories/>
 		            <div className="container-plate"><Post/></div>
 		        </div>
         	)}

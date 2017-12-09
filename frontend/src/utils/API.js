@@ -11,6 +11,10 @@ export const fetchCategories = () => {
 
 export const fetchPosts = () => {
 	return fetch(`${URL}/posts`, {headers: header})
-	.then(res => res.json())
-	.then(data => data);
+	.then(res => res.json());
+}
+
+export const fetchComments = () => {
+	return fetch(`${URL}/{postId}/comments`, {headers: header})
+	.then(res => res.json());
 }

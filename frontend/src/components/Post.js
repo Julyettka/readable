@@ -5,15 +5,16 @@ import { withRouter } from 'react-router-dom'
 import {getPosts} from '../actions/posts'
 import moment from 'moment'
 
-
 class Post extends Component{
 	componentDidMount(){
-		this.props.getPosts()
+		this.props.getPosts();
 	}
 
-
 	render(){
-		const posts = this.props.posts || [];
+		let posts = this.props.posts || [];
+		if (this.props.chosenCat){
+			posts = this.props.posts.filter(post => post.category === this.props.chosenCat) || [];
+		}
 		return(
 			<ul className="container-plate">
 			{posts.map((post) =>

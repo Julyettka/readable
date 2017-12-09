@@ -2,7 +2,6 @@ import React from 'react'
 import { Component } from 'react'
 import Header from './Header.js'
 import HeaderAddPost from './HeaderAddPost.js'
-import Post from './Post.js'
 import NavCategories from './NavCategories.js'
 import AddPost from './AddPost.js'
 import {Route} from 'react-router-dom'
@@ -18,7 +17,6 @@ class App extends Component{
         		<div>
 		            <Header/>
 		            <NavCategories/>
-		            <div className="container-plate"><Post/></div>
 		        </div>
         	)}
         	/>

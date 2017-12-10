@@ -8,11 +8,11 @@ import Post from './Post.js'
 
 class NavCategories extends Component{
 	state = {
-    	filteredCatClicked: ''
+    	CatClicked: ''
 	}
 
-	onCategoryNavChange = (filteredCatClicked) => {
-  		this.setState({filteredCatClicked});
+	onCategoryNavChange = (CatClicked) => {
+  		this.setState({CatClicked});
 	}
 
 	componentDidMount() {
@@ -23,18 +23,20 @@ class NavCategories extends Component{
 		const categories = this.props.categories || [];
 		return(<div>
 				<ul className="upper-nav">
-				<li value="all" className="selected"
+				<li value=""
+				className={'' === this.state.CatClicked ? "selected" : ""}
 				onClick={()=> this.onCategoryNavChange("")}>all</li>
 				{categories.map((category) =>
 					<li onClick={() => this.onCategoryNavChange(category.name)}
 					value={category.name}
+					className={category.name === this.state.CatClicked ? "selected" : ""}
 					key={category.path}>
 						<a>{category.name}</a>
 					</li>
 				)}
 			</ul>
 			<div className="container-plate">
-				<Post chosenCat={this.state.filteredCatClicked}/>
+				<Post chosenCat={this.state.CatClicked}/>
 			</div>
 			</div>)
 	}

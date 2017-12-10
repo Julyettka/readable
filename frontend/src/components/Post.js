@@ -28,6 +28,10 @@ class Post extends Component{
 			        {post.voteScore}</div>
 	    		</li>
 	    		)}
+			{posts.length === 0 &&
+				<h3> No posts in {this.props.chosenCat} category.  Be the first to write here!
+				</h3>
+			}
 	    	</ul>)
 	}
 }

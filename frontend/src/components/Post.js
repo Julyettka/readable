@@ -9,11 +9,12 @@ import { Link } from 'react-router-dom'
 class Post extends Component{
 	componentDidMount(){
 		this.props.getPosts();
-		//console.log(this.props.getPosts);
+		//console.log(this.props.getPosts());
 	}
 
 	render(){
 		let posts = this.props.posts || [];
+		//console.log(posts);
 		if (this.props.chosenCat){
 			posts = this.props.posts.filter(post => post.category === this.props.chosenCat) || [];
 		}

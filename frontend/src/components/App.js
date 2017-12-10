@@ -4,34 +4,22 @@ import Header from './Header.js'
 import HeaderAddPost from './HeaderAddPost.js'
 import NavCategories from './NavCategories.js'
 import AddPost from './AddPost.js'
-import {Route} from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { getCategories } from '../actions/categories';
+import {Route, Switch} from 'react-router-dom'
+import { getCategories } from '../actions/categories'
+import PostDetailed from './PostDetailed.js'
 
 class App extends Component{
-
     render(){
         return (<div>
-        	<Route exact path='/' render={()=>(
-        		<div>
-		            <Header/>
-		            <NavCategories/>
-		        </div>
-        	)}
-        	/>
-        	<Route exact path='/add' render={()=> (
-        		<div>
-        			<HeaderAddPost/>
-        			<AddPost/>
-        		</div>
-        		)}
-        	/>
+		      <Header/>
+              <Switch>
+                <Route exact path='/' component={NavCategories}/>
+        	    <Route path='/add' component={AddPost}/>
+                <Route path='/:category/:id' component={PostDetailed}/>
+              </Switch>
         </div>)
     }
 }
 
-export default withRouter(connect(undefined,
-  { fetchCategories: getCategories }
-)(App));
+export default App;
 

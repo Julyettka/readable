@@ -117,7 +117,7 @@ button{
   border: 1px solid rgba(211,211,211, 0.5);
   border-radius: 5px;
   box-sizing: border-box;
-  min-width: 300px;
+  min-width: 330px;
   width: 31%;
   padding: 45px 15px;
   margin: 1% 1%;
@@ -208,8 +208,22 @@ button{
   padding: 0 6px;
 }
 
-.fa-thumbs-up:hover{
+
+.fa-thumbs-up:hover:before{
+  color: #609e19;
   cursor: pointer;
+}
+
+.fa-thumbs-down:before {
+  color: #cc0000;
+  content: "\f165";
+  padding: 0 6px;
+}
+
+.fa-thumbs-down:hover:before {
+  color: #b20000;
+  content: "\f165";
+  padding: 0 6px;
 }
 
 .category{

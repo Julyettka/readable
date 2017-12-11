@@ -29,8 +29,8 @@ class Post extends Component{
 			        <div className="author">by {post.author}</div>
 			        <div className="snap">{post.body}</div>
 			        <div className="category">{post.category}</div>
-			        <div className="vote"><i className="fa fa-thumbs-up" aria-hidden="true"></i>
-			        {post.voteScore}</div>
+			        <div className="vote"><i className="fa fa-thumbs-up"></i>
+			        {post.voteScore}<i className="fa fa-thumbs-down"></i></div>
 	    		</Link>
 	    		</li>
 	    		)}

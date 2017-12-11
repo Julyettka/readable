@@ -15,13 +15,14 @@ class PostDetailed extends Component{
 		const post = this.props.post;
 		console.log(post);
 		return(
-			<div>
-		        <div className="date">{post.timestamp}</div>
-		        <div className="title">{post.title}</div>
-		        <div className="author">by {post.author}</div>
-		        <div className="snap">{post.body}</div>
-		        <div className="category">{post.category}</div>
-		        <div className="vote"><i className="fa fa-thumbs-up" aria-hidden="true"></i>
+			<div className="container">
+				<div className="avatar"></div>
+		        <div className="author-post">{post.author}</div>
+		        <div className="date-post">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
+		        <div className="title-post">{post.title}</div>
+		        <div className="snap-post">{post.body}</div>
+		        <div className="category-post">{post.category}</div>
+		        <div className="vote-post"><i className="fa fa-thumbs-up" aria-hidden="true"></i>
 		        </div>
 		    </div>
 			)

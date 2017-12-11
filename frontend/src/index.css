@@ -32,6 +32,7 @@ button{
 .header{
     height: 80px;
     width: 100%;
+    margin-bottom: 40px;
     background: rgb(2, 179, 228) repeating-linear-gradient(to right, rgba(0, 126, 172, 0.4), rgba(0, 126, 172, 0.2) 15px, transparent 4px, transparent 8px) repeat scroll 0 0;
 }
 
@@ -117,7 +118,7 @@ button{
   border: 1px solid rgba(211,211,211, 0.5);
   border-radius: 5px;
   box-sizing: border-box;
-  min-width: 330px;
+  min-width: 340px;
   width: 31%;
   padding: 45px 15px;
   margin: 1% 1%;
@@ -274,4 +275,37 @@ textarea{
   border-bottom: none;
   border-left: none;
   border-right: none;
+}
+
+/* One Post Details */
+.container{
+    position: relative;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  margin-right: 18px;
+  background-image: url('./img/person.svg');
+  border: 1px solid gray;
+  background-size: 32px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  display:inline-block;
+}
+
+.author-post{
+  display: inline-block;
+  position: relative;
+  bottom: 35px;
+}
+
+.date-post{
+  position: relative;
+  left: 80px;
+  bottom: 30px;
 }

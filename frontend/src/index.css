@@ -159,12 +159,15 @@ button{
   }
 }
 
+.date, .date-post{
+  color: gray;
+  font-size: 0.7em;
+}
+
 .date{
   position: absolute;
   top: 10px;
   left: 20px;
-  color: gray;
-  font-size: 0.7em;
 }
 
 .title{
@@ -227,10 +230,23 @@ button{
   padding: 0 6px;
 }
 
+.category, .category-post{
+  color: rgb(2, 179, 228);
+}
+
+.category-post{
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
 .category{
   position: absolute;
   bottom: 15px;
-  color: rgb(2, 179, 228);
+}
+
+.category-title{
+  font-size: 16px;
+  color: black;
 }
 
 .vote{
@@ -281,7 +297,7 @@ textarea{
 .container{
     position: relative;
     margin: 0 auto;
-    max-width: 90%;
+    max-width: 50%;
 }
 
 .avatar {
@@ -309,3 +325,14 @@ textarea{
   left: 80px;
   bottom: 30px;
 }
+
+.title-post{
+  font-size: 1.5em;
+  line-height: 25px;
+  margin-bottom: 25px;
+}
+
+.snap-post{
+  margin-bottom: 25px;
+}
+

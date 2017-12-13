@@ -19,11 +19,12 @@ class PostDetailed extends Component{
 				<div className="avatar"></div>
 		        <div className="author-post">{post.author}</div>
 		        <div className="date-post">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
+		        <div className="category-post">
+		        	<span className="category-title">categories:</span> {post.category}</div>
 		        <div className="title-post">{post.title}</div>
 		        <div className="snap-post">{post.body}</div>
-		        <div className="category-post">{post.category}</div>
-		        <div className="vote-post"><i className="fa fa-thumbs-up" aria-hidden="true"></i>
-		        </div>
+		        <div className="vote-post"><i className="fa fa-thumbs-up"></i>
+			        {post.voteScore}<i className="fa fa-thumbs-down"></i></div>
 		    </div>
 			)
 	}

@@ -23,3 +23,18 @@ export const fetchComments = (id) => {
 	return fetch(`${URL}/posts/${id}/comments`, {headers: header})
 	.then(res => res.json());
 }
+
+//POST
+
+export const voteComment = (id, option) => {
+    return fetch(`${URL}/comments/${id}`, {
+        method: 'POST',
+        headers: {
+            ...header,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            option
+        })
+    }).then(res => res.json())
+}

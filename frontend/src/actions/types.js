@@ -2,6 +2,8 @@ export const GET_CATEGORIES = 'GET_CATEGORIES'
 export const GET_POSTS = 'GET_POSTS'
 export const GET_ONE_POST = 'GET_ONE_POST'
 export const GET_COMMENTS = 'GET_COMMENTS'
+export const UPVOTE_COMMENT = 'UPVOTE_COMMENT'
+export const DOWNVOTE_COMMENT = 'DOWNVOTE_COMMENT'
 
 export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'

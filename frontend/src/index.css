@@ -21,6 +21,19 @@ button{
     src: url(fonts/Lustria-Regular.ttf);
 }
 
+ul{
+  list-style-type: none;
+}
+
+/* COLORS VARIABLES*/
+/*
+green = #3bda22;
+green hover = #609e19;
+red = #cc0000;
+red hover = #b20000;
+*/
+
+
 /* header */
 
 .container-header{
@@ -106,7 +119,6 @@ button{
 /* plate */
 
 .container-plate{
-  list-style: none;
   max-width: 96%;
   display: flex;
   flex-wrap: wrap;
@@ -159,7 +171,7 @@ button{
   }
 }
 
-.date, .date-post{
+.date, .date-post, .date-comment{
   color: gray;
   font-size: 0.7em;
 }
@@ -206,29 +218,50 @@ button{
   -moz-osx-font-smoothing: grayscale;
 }
 
+.fa:hover{
+  cursor: pointer;
+}
+
 .fa-thumbs-up:before {
   color: #3bda22;
   content: "\f164";
-  padding: 0 6px;
+  padding: 0 10px;
 }
-
 
 .fa-thumbs-up:hover:before{
   color: #609e19;
-  cursor: pointer;
 }
 
 .fa-thumbs-down:before {
   color: #cc0000;
   content: "\f165";
-  padding: 0 6px;
+  padding: 0 10px;
 }
 
 .fa-thumbs-down:hover:before {
   color: #b20000;
-  content: "\f165";
-  padding: 0 6px;
 }
+
+.fa-pencil:before{
+  padding: 10px;
+  content: "\f040";
+  color: #3bda22;
+}
+
+.fa-pencil:hover:before{
+  color: #609e19;
+}
+
+.fa-trash-o:before{
+  padding: 10px;
+  content: "\f014";
+  color: #cc0000;
+}
+
+.fa-trash-o:hover:before{
+  color: #b20000;
+}
+
 
 .category, .category-post{
   color: rgb(2, 179, 228);
@@ -299,10 +332,13 @@ textarea{
     margin: 0 auto;
     max-width: 50%;
 }
+.container-comments>h3{
+  margin-top: 50px;
+}
 
-.avatar {
-  width: 60px;
-  height: 60px;
+.avatar, .avatar-comment {
+  width: 65px;
+  height: 65px;
   background-color: white;
   margin-right: 18px;
   background-image: url('./img/person.svg');
@@ -314,13 +350,18 @@ textarea{
   display:inline-block;
 }
 
-.author-post{
+.avatar-comment{
+  width: 50px;
+  height: 50px;
+}
+
+.author-post, .author-comment{
   display: inline-block;
   position: relative;
   bottom: 35px;
 }
 
-.date-post{
+.date-post, .date-comment{
   position: relative;
   left: 80px;
   bottom: 30px;
@@ -332,7 +373,18 @@ textarea{
   margin-bottom: 25px;
 }
 
-.snap-post{
+.snap-post, .snap-comment{
   margin-bottom: 25px;
 }
 
+.snap-post{
+  font-size: 105%;
+}
+
+/* Comments*/
+.comment-plate{
+
+  position: relative;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(211,211,211, 0.5);
+}

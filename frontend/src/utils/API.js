@@ -19,7 +19,7 @@ export const fetchOnePost = (id) => {
 	.then(res => res.json());
 }
 
-// export const fetchComments = () => {
-// 	return fetch(`${URL}/${postId}/comments`, {headers: header})
-// 	.then(res => res.json());
-// }
+export const fetchComments = (id) => {
+	return fetch(`${URL}/posts/${id}/comments`, {headers: header})
+	.then(res => res.json());
+}

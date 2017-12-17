@@ -1,7 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
 import Header from './Header.js'
-import HeaderAddPost from './HeaderAddPost.js'
 import NavCategories from './NavCategories.js'
 import AddPost from './AddPost.js'
 import {Route, Switch} from 'react-router-dom'

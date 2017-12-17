@@ -14,7 +14,7 @@ class Post extends Component{
 
 	render(){
 		let posts = this.props.posts || [];
-		//console.log(posts);
+		console.log(posts);
 		if (this.props.chosenCat){
 			posts = this.props.posts.filter(post => post.category === this.props.chosenCat) || [];
 		}
@@ -29,8 +29,11 @@ class Post extends Component{
 			        <div className="author">by {post.author}</div>
 			        <div className="snap">{post.body}</div>
 			        <div className="category">{post.category}</div>
-			        <div className="vote"><i className="fa fa-thumbs-up"></i>
-			        {post.voteScore}<i className="fa fa-thumbs-down"></i></div>
+			        <div className="vote">
+			        	<i className="fa fa-thumbs-up"></i>
+			        	{post.voteScore}
+			        	<i className="fa fa-thumbs-down"></i>
+			        </div>
 	    		</Link>
 	    		</li>
 	    		)}

@@ -12,7 +12,7 @@ class Comments extends Component{
 	}
 
 	onClickUpVote = (id) => {
-		console.log(id);
+		//console.log(id);
     	this.props.upVote(id)
   	}
 
@@ -21,9 +21,10 @@ class Comments extends Component{
   	}
 
 	render(){
-		const comments = this.props.comments || [];
+		let comments = this.props.comments || [];
 		let commentsNum = comments.length;
-		//console.log(comments);
+		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []))
+		console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">

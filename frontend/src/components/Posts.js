@@ -17,7 +17,7 @@ class Posts extends Component{
 
 	render(){
 		const categoryRoute = this.currentCategoryRoute();
-		console.log(categoryRoute);
+		//console.log(categoryRoute);
 		let posts = Object.keys(this.props.posts).map((data)=>(this.props.posts[data] || []))
 		if (categoryRoute){
 			posts = posts.filter(post => post.category === categoryRoute);

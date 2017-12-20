@@ -1,42 +1,50 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { Component } from 'react'
 import { getCategories } from '../actions/categories'
+import {getPostsbyCategory} from '../actions/posts'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Post from './Post.js'
+import Posts from './Posts.js'
 
 
 class NavCategories extends Component{
-	state = {
-    	CatClicked: ''
-	}
-
-	onCategoryNavChange = (CatClicked) => {
-  		this.setState({CatClicked});
-	}
-
 	componentDidMount() {
         this.props.getCategories()
     }
+
+    state = {
+    	active: ''
+	}
+
+	onCatChange = (active) => {
+  		this.setState({active});
+	}
 
 	render(){
 		const categories = this.props.categories || [];
 		return(<div>
 				<ul className="upper-nav">
-				<li value=""
-				className={'' === this.state.CatClicked ? "selected" : ""}
-				onClick={()=> this.onCategoryNavChange("")}>all</li>
+				<Link style={{textDecoration:'none', color: 'rgb(2, 179, 228)'}}
+					to="/">
+					<li value=""
+					className={'' === this.state.active ? "selected" : ""}
+					onClick={()=> this.onCatChange("")}>all</li>
+				</Link>
 				{categories.map((category) =>
-					<li onClick={() => this.onCategoryNavChange(category.name)}
+
+					<li
 					value={category.name}
-					className={category.name === this.state.CatClicked ? "selected" : ""}
+					onClick={() => this.onCatChange(category.name)}
+					className={category.name === this.state.active ? "selected" : ""}
 					key={category.path}>
-						<a>{category.name}</a>
+						<Link style={{textDecoration:'none', color: 'rgb(2, 179, 228)'}}
+					to={`/${category.path}`}>{category.name}</Link>
 					</li>
 				)}
 			</ul>
 			<div className="container-plate">
-				<Post chosenCat={this.state.CatClicked}/>
+				<Posts/>
 			</div>
 			</div>)
 	}
@@ -49,5 +57,5 @@ function mapStateToProps({categories}){
 }
 
 export default withRouter(connect(mapStateToProps,
-  { getCategories }
+  { getCategories, getPostsbyCategory }
 )(NavCategories));

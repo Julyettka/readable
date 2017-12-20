@@ -14,6 +14,12 @@ export const fetchPosts = () => {
 	.then(res => res.json());
 }
 
+export const fetchPostsbyCategory = (category) => {
+  return fetch(`${URL}/${category}/posts`, { header })
+    .then(response => response.json())
+    .then(data => data)
+}
+
 export const fetchOnePost = (id) => {
 	return fetch(`${URL}/posts/${id}`, {headers: header})
 	.then(res => res.json());

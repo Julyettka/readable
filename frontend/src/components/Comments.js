@@ -16,14 +16,14 @@ class Comments extends Component{
     	this.props.upVote(id)
   	}
 
-  	// onClickDownVote = (id) => {
-   //  	this.props.downVote(id)
-  	// }
+  	onClickDownVote = (id) => {
+    	this.props.downVote(id)
+  	}
 
 	render(){
 		const comments = this.props.comments || [];
 		let commentsNum = comments.length;
-		console.log(comments);
+		//console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">
@@ -39,7 +39,7 @@ class Comments extends Component{
 							<div className="vote-post">
 								<i onClick={() => this.onClickUpVote(comment.id)}className="fa fa-thumbs-up"></i>
 			        			{comment.voteScore}
-			        			<i className="fa fa-thumbs-down"></i>
+			        			<i onClick={() => this.onClickDownVote(comment.id)}className="fa fa-thumbs-down"></i>
 					        	<i className="fa fa-pencil" aria-hidden="true"></i>
 					    		<i className="fa fa-trash-o" aria-hidden="true"></i>
 					        </div>

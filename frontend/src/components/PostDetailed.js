@@ -10,11 +10,12 @@ import Comments from './Comments'
 class PostDetailed extends Component{
 	componentDidMount(){
 		const {id} = this.props.match.params;
+		console.log(id);
 		this.props.getOnePost(id);
 	}
 	render(){
 		const post = this.props.post;
-		//console.log(post);
+		console.log(post);
 		return(
 			<div className="container">
 				<div className="avatar"></div>
@@ -37,10 +38,8 @@ class PostDetailed extends Component{
 	}
 }
 
-function mapStateToProps({post}){
-	return {
-		post
-	}
+function mapStateToProps(post) {
+    return post
 }
 
 // const mapDispatchToProps = (dispatch) => {

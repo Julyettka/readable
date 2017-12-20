@@ -1,10 +1,20 @@
 import * as API from '../utils/API'
-import {GET_POSTS, GET_ONE_POST} from './types'
+import {GET_POSTS, GET_POST_CATEGORY, GET_ONE_POST} from './types'
 
 const receivePosts = posts => ({
 	type: GET_POSTS,
 	posts
 });
+
+export const getPostsbyCategory = (category) => dispatch => (
+  API.fetchPostsbyCategory(category)
+    .then((posts) => {
+      dispatch({
+        type: GET_POST_CATEGORY,
+        posts
+      })
+    })
+)
 
 const receiveOnePost = post => ({
 	type: GET_ONE_POST,

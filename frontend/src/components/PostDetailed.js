@@ -10,16 +10,25 @@ import Comments from './Comments'
 class PostDetailed extends Component{
 	componentDidMount(){
 		const {id} = this.props.match.params;
-		//console.log(id);
 		this.props.getOnePost(id);
 	}
+
+	currentPostRoute(){
+		const {id} = this.props.match.params;
+		return id;
+	}
+			//const {id} = this.props.match.params;
+		//console.log(id);
+
 	render(){
-		const post = this.props.post;
-		console.log(post);
+		const PostRoute = this.currentPostRoute();
+		console.log(PostRoute);
+		let post = this.props.post.filter(post => post.id === PostRoute);
+		post = post[0] || [];
 		return(
 			<div className="container">
 				<div className="avatar"></div>
-		        <div className="author-post">{post.author}</div>
+				<div className="author-post">{post.author}</div>
 		        <div className="date-post">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
 		        <div className="category-post">
 		        	<span className="category-title">categories:</span> {post.category}</div>

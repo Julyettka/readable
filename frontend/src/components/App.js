@@ -4,7 +4,6 @@ import Header from './Header.js'
 import NavCategories from './NavCategories.js'
 import AddPost from './AddPost.js'
 import {Route, Switch} from 'react-router-dom'
-import { getCategories } from '../actions/categories'
 import PostDetailed from './PostDetailed.js'
 
 class App extends Component{

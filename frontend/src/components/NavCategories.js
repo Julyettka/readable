@@ -10,7 +10,7 @@ import Posts from './Posts.js'
 
 class NavCategories extends Component{
 	componentDidMount() {
-        this.props.getCategories()
+        this.props.getCategories();
     }
 
     state = {

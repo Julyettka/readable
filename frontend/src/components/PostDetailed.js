@@ -10,7 +10,7 @@ import Comments from './Comments'
 class PostDetailed extends Component{
 	componentDidMount(){
 		const {id} = this.props.match.params;
-		console.log(id);
+		//console.log(id);
 		this.props.getOnePost(id);
 	}
 	render(){

@@ -13,8 +13,9 @@ class Post extends Component{
 	}
 
 	render(){
-		let posts = this.props.posts || [];
-		console.log(posts);
+		//let posts = this.props.posts || [];
+		let posts=Object.keys(this.props.posts).map((data)=>(this.props.posts[data] || []))
+		//console.log(posts);
 		if (this.props.chosenCat){
 			posts = this.props.posts.filter(post => post.category === this.props.chosenCat) || [];
 		}

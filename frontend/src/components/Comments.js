@@ -12,7 +12,6 @@ class Comments extends Component{
 	}
 
 	onClickUpVote = (id) => {
-		//console.log(id);
     	this.props.upVote(id)
   	}
 

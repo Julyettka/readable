@@ -4,10 +4,10 @@ const comments = (state = {}, action) => {
   switch(action.type) {
     case GET_COMMENTS:
       return action.comments;
-    case UPVOTE_COMMENT:
-    	console.log(action.comment.voteScore);
-    	return state;
     case DOWNVOTE_COMMENT:
+    case UPVOTE_COMMENT:
+    	return state.map(comment =>
+    		(comment.id === action.comment.id) ? comment = action.comment : comment);
     default:
       return state;
   }

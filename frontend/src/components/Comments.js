@@ -59,7 +59,7 @@ function mapStateToProps({comments}){
 	}
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps (dispatch){
     return {
     	getComments: (id) => dispatch(getComments(id)),
         upVote: (id) => dispatch(upVoteComment(id)),

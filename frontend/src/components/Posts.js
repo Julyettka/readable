@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import {getPosts} from '../actions/posts'
+import {getPosts, upVotePost, downVotePost} from '../actions/posts'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
@@ -13,6 +13,14 @@ class Posts extends Component{
 	currentCategoryRoute(){
 		const {category} = this.props.match.params;
 		return category;
+	}
+
+	onClickUpVote = (id) => {
+		this.props.upVote(id)
+	}
+
+	onClickDownVote = (id) => {
+		this.props.downVote(id)
 	}
 
 	render(){
@@ -35,9 +43,9 @@ class Posts extends Component{
 	    		</Link>
 			        <div className="category">{post.category}</div>
 			        <div className="vote">
-			        	<i className="fa fa-thumbs-up"></i>
+			        	<i onClick={() => this.onClickUpVote(post.id)}className="fa fa-thumbs-up"></i>
 			        	{post.voteScore}
-			        	<i className="fa fa-thumbs-down"></i>
+			        	<i onClick={() => this.onClickDownVote(post.id)}className="fa fa-thumbs-down"></i>
 			        </div>
 	    		</li>
 	    		)}
@@ -55,6 +63,14 @@ function mapStateToProps({posts}){
 	}
 }
 
+function mapDispatchToProps(dispatch){
+	return {
+		getPosts: () => dispatch(getPosts()),
+		upVote: (id) => dispatch(upVotePost(id)),
+        downVote: (id) => dispatch(downVotePost(id)),
+	}
+}
+
 export default withRouter(connect(mapStateToProps,
-  { getPosts }
+  mapDispatchToProps
 )(Posts));

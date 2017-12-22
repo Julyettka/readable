@@ -30,7 +30,20 @@ export const fetchComments = (id) => {
 	.then(res => res.json());
 }
 
-//POST
+//POST method
+
+export const votePost = (id, option) => {
+    return fetch(`${URL}/posts/${id}`, {
+        method: 'POST',
+        headers: {
+            ...header,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            option
+        })
+    }).then(res => res.json())
+}
 
 export const voteComment = (id, option) => {
     return fetch(`${URL}/comments/${id}`, {

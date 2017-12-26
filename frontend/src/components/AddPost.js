@@ -1,5 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
+import { withRouter } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class AddPost extends Component{
 	render(){
@@ -11,6 +13,7 @@ class AddPost extends Component{
 						<input placeholder="Autor name" className ="author"/><br />
 						<textarea placeholder="Text..." className ="textarea"></textarea>
 					</form>
+					<button className="post-button">Save post</button>
 				</div>
 			</div>)
 	}

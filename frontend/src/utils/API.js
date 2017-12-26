@@ -57,3 +57,19 @@ export const voteComment = (id, option) => {
         })
     }).then(res => res.json())
 }
+
+
+export const addPost = (post) => {
+    return fetch (`${URL}/posts`, {
+        method: 'POST',
+        headers: {
+            ...header,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ...post,
+            //id: uuid(),
+            timestamp: Date.now()
+        })
+    }).then(res=> res.json())
+}

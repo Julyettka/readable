@@ -64,7 +64,7 @@ blue color: rgb(2, 179, 228);
   margin: 25px 0 25px 25px;
 }
 
-.post-button{
+.post-button, .save-button{
   font-family: sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -76,15 +76,24 @@ blue color: rgb(2, 179, 228);
   background-image: -ms-linear-gradient(top, #3bda22, #609e19);
   background-image: -o-linear-gradient(top, #3bda22, #609e19);
   background-image: linear-gradient(to bottom, #3bda22, #609e19);
-  -webkit-border-radius: 18;
-  -moz-border-radius: 18;
-  border-radius: 18px;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
   color: #ffffff;
   font-size: 14px;
   padding: 12px 20px 26px 20px;
   text-decoration: none;
   cursor: pointer;
   box-shadow: 2px 2px 2px #444445;
+}
+
+.save-button{
+  width: 100px;
+  height: 10px;
+  box-shadow: none;
+  text-align: center;
+  padding: 12px 20px 20px 20px;
+  margin: 0 auto;
 }
 
 .post-button:hover {
@@ -190,7 +199,7 @@ blue color: rgb(2, 179, 228);
 
 .author{
   color: gray;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .snap{
@@ -319,6 +328,7 @@ textarea{
   font-size: 15px;
   padding: 10px;
   width: 100%;
+  min-height: 280px;
   outline: none;
   outline-style: none;
   border-top: none;
@@ -384,8 +394,20 @@ textarea{
 
 /* Comments*/
 .comment-plate{
-
   position: relative;
   padding: 20px 0;
+  border-bottom: 1px solid rgba(211,211,211, 0.5);
+}
+
+/* Add Post*/
+.cat-select{
+  width: 140px;
+  height: 28px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  padding: 2px 10px;
   border-bottom: 1px solid rgba(211,211,211, 0.5);
 }

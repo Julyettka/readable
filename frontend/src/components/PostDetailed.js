@@ -10,19 +10,19 @@ import Comments from './Comments'
 class PostDetailed extends Component{
 	componentDidMount(){
 		const {id} = this.props.match.params;
+		//console.log(id);
 		this.props.getOnePost(id);
 	}
 
 	currentPostRoute(){
 		const {id} = this.props.match.params;
+		console.log(id);
 		return id;
 	}
-			//const {id} = this.props.match.params;
-		//console.log(id);
 
 	render(){
 		const PostRoute = this.currentPostRoute();
-		console.log(PostRoute);
+		//console.log(PostRoute);
 		let post = this.props.post.filter(post => post.id === PostRoute);
 		post = post[0] || [];
 		return(

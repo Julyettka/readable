@@ -41,7 +41,7 @@ class Posts extends Component{
 			        <div className="author">by {post.author}</div>
 			        <div className="snap">{post.body}</div>
 	    		</Link>
-			        <div className="category">{post.category}</div>
+			        <Link to={`/${post.category}`}><div className="category">{post.category}</div></Link>
 			        <div className="vote">
 			        	<i onClick={() => this.onClickUpVote(post.id)}className="fa fa-thumbs-up"></i>
 			        	{post.voteScore}

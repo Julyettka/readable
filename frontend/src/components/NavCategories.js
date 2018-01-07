@@ -13,30 +13,29 @@ class NavCategories extends Component{
         this.props.getCategories();
     }
 
-    state = {
-    	active: ''
-	}
-
-	onCatChange = (active) => {
-  		this.setState({active});
+	currentNavRoute(){
+		let url = window.location.href;
+		url = url.split('/');
+		let ln = url.length;
+		url = url[ln - 1];
+		return url;
 	}
 
 	render(){
+		const NavRoute = this.currentNavRoute();
 		const categories = this.props.categories || [];
 		return(<div>
 				<ul className="upper-nav">
 				<Link style={{textDecoration:'none', color: 'rgb(2, 179, 228)'}}
 					to="/">
 					<li value=""
-					className={'' === this.state.active ? "selected" : ""}
-					onClick={()=> this.onCatChange("")}>all</li>
+					className={'' === NavRoute ? "selected" : ""}
+					>all</li>
 				</Link>
 				{categories.map((category) =>
-
 					<li
 					value={category.name}
-					onClick={() => this.onCatChange(category.name)}
-					className={category.name === this.state.active ? "selected" : ""}
+					className={category.name === NavRoute ? "selected" : ""}
 					key={category.path}>
 						<Link style={{textDecoration:'none', color: 'rgb(2, 179, 228)'}}
 					to={`/${category.path}`}>{category.name}</Link>

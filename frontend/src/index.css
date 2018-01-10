@@ -307,11 +307,12 @@ input.author, input.title{
     border-right: none;
     border-bottom: solid #eeeeee 1px;
     padding: 3px 10px;
-    margin: 20px 0;
+    margin: 10px 0;
    }
 
 input.title{
-  font-size: 30px;
+  font-size: 25px;
+  width: 100%;
 }
 
 input.author, textarea{
@@ -320,7 +321,9 @@ input.author, textarea{
 
 .containter-post{
     margin: 40px auto;
-    max-width: 90%;
+    border: 4px dotted gray;
+    padding: 20px 80px;
+    max-width: 50%;
   }
 
 textarea{
@@ -401,8 +404,9 @@ textarea{
 
 /* Add Post*/
 .cat-select{
+  margin-top: 10px;
   width: 140px;
-  height: 28px;
+  height: 25px;
   border-radius: 5px;
   outline: none;
   border: none;

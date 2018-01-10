@@ -10,7 +10,6 @@ import Comments from './Comments'
 class PostDetailed extends Component{
 	componentDidMount(){
 		const {id} = this.props.match.params;
-		//console.log(id);
 		this.props.getOnePost(id);
 	}
 
@@ -51,11 +50,6 @@ function mapStateToProps(post) {
     return post
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getOnePost: (id) => dispatch(getOnePost(id))
-//     }
-// }
 
 export default withRouter(connect(mapStateToProps,
   { getOnePost }

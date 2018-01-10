@@ -17,7 +17,10 @@ const posts = (state = [], action) => {
 			return state.map(post=>
 				(post.id === action.post.id) ? post = action.post : post);
 		case ADD_POST:
-			console.log(state);
+			// return{
+			// 	...state,
+	  //       	posts: [...state.posts, action.newPost]
+			// }
 		default:
 			return state;
 	}

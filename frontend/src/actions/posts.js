@@ -48,8 +48,8 @@ export const downVotePost = (id) => dispatch => (
 	}))
 	)
 
-export const addPost = (post) => dispatch => (
-	API.addPost(post)
+export const addPost = (newPost) => dispatch => (
+	API.addPost(newPost)
 	.then(newPost => dispatch({
 		type: ADD_POST,
 		newPost

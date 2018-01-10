@@ -204,6 +204,8 @@ blue color: rgb(2, 179, 228);
 
 .snap{
   margin-top: 20px;
+  height: 60px;
+  overflow: hidden;
 }
 
 

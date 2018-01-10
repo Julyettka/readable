@@ -68,7 +68,7 @@ export const addPost = (post) => {
         },
         body: JSON.stringify({
             ...post,
-            //id: uuid(),
+            // id: uuid(),
             timestamp: Date.now()
         })
     }).then(res=> res.json())

@@ -15,13 +15,14 @@ class PostDetailed extends Component{
 
 	currentPostRoute(){
 		const {id} = this.props.match.params;
-		//console.log(id);
 		return id;
 	}
+			//const {id} = this.props.match.params;
+		//console.log(id);
 
 	render(){
 		const PostRoute = this.currentPostRoute();
-		//console.log(PostRoute);
+		console.log(PostRoute);
 		let post = this.props.post.filter(post => post.id === PostRoute);
 		post = post[0] || [];
 		return(
@@ -49,6 +50,12 @@ class PostDetailed extends Component{
 function mapStateToProps(post) {
     return post
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getOnePost: (id) => dispatch(getOnePost(id))
+//     }
+// }
 
 export default withRouter(connect(mapStateToProps,
   { getOnePost }

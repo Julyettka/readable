@@ -23,7 +23,7 @@ class Comments extends Component{
 		let comments = this.props.comments || [];
 		let commentsNum = comments.length;
 		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []))
-		console.log(comments);
+		//console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">

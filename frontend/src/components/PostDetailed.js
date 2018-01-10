@@ -15,7 +15,7 @@ class PostDetailed extends Component{
 
 	currentPostRoute(){
 		const {id} = this.props.match.params;
-		console.log(id);
+		//console.log(id);
 		return id;
 	}
 
@@ -49,7 +49,6 @@ class PostDetailed extends Component{
 function mapStateToProps(post) {
     return post
 }
-
 
 export default withRouter(connect(mapStateToProps,
   { getOnePost }

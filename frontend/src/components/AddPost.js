@@ -6,6 +6,7 @@ import { getCategories } from '../actions/categories'
 import { addPost } from '../actions/posts'
 import { connect } from 'react-redux'
 import uuidv1 from 'uuid/v1'
+import Modal from 'react-modal'
 
 class AddPost extends Component{
 	componentDidMount(){
@@ -18,7 +19,8 @@ class AddPost extends Component{
 		category: 'react',
 		body: '',
 		invalid: false,
-		success: false
+		success: false,
+		modalIsOpen: false
 	}
 
  	onTitleChange(title){
@@ -38,33 +40,47 @@ class AddPost extends Component{
  	}
 
  	onPostClick(){
-	if (this.state.title && this.state.category && this.state.author && this.state.body) {
-      const newPost = {
-        id: uuidv1(),
-        timestamp: Date.now(),
-        title: this.state.title,
-        author: this.state.author,
-        category: this.state.category,
-        body: this.state.body
-      }
+	if (this.state.title && this.state.category && this.state.author && this.state.body)
+	{
+	      const newPost = {
+	        id: uuidv1(),
+	        timestamp: Date.now(),
+	        title: this.state.title,
+	        author: this.state.author,
+	        category: this.state.category,
+	        body: this.state.body
+	      }
 
-      this.props.addPostClick(newPost)
-        .then(() => this.setState({
-          success: true,
-          title: '',
-          author: '',
-          category: '',
-          body: '',
-          invalid: false
-        }))
-    } else {
-      this.setState({
-        invalid: true,
-        success: false
-      })
-    }
-
+	      this.props.addPostClick(newPost)
+	        .then(() => this.setState({
+	          success: true,
+	          title: '',
+	          author: '',
+	          category: '',
+	          body: '',
+	          invalid: false
+	        }))
+	        this.openModal();
+	    } else {
+	      this.setState({
+	        invalid: true,
+	        success: false
+	      })
+	    }
  	}
+
+	 openModal = this.openModal.bind(this);
+	 closeModal = this.closeModal.bind(this);
+
+	openModal(){
+	    this.setState({modalIsOpen: true});
+		console.log(this.state.modalIsOpen);
+	  }
+	  closeModal(){
+	  	this.setState({modalIsOpen: false});
+	  	console.log(this.state.modalIsOpen);
+	  }
+
 
 	render(){
 		const categories = this.props.categories || [];
@@ -74,9 +90,18 @@ class AddPost extends Component{
 		return(
 			<div>
 		        <div>
-		          {this.state.success && (
-		            <h3>New Post added...</h3>
-		          )}
+		          	<Modal
+					  isOpen={this.state.modalIsOpen}
+					   closeTimeoutMS={4}
+					  onRequestClose={this.closeModal}
+					  className="modal-success"
+					  contentLabel="Modal"
+					>
+						<i className="fa fa-check"></i>
+						<h1>Hooray!</h1>
+					  <p>Your post has been successfully added</p>
+					  <button className="close-modal" onClick={this.closeModal}> X </button>
+					</Modal>
 		        </div>
 		        <div>
 		          {this.state.invalid && (

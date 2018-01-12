@@ -8,10 +8,12 @@ const post = (state = {}, action) => {
         ...state,
         post: action.post
       }
-		// case DOWNVOTE_POST:
-		// case UPVOTE_POST:
-		// return state.map(post=>
-		// 		(post.id === action.post.id) ? post = action.post : post);
+		case DOWNVOTE_POST:
+		case UPVOTE_POST:
+		return {
+			...state,
+                post: action.post
+            };
 		case ADD_POST:
 		default:
 			return state;

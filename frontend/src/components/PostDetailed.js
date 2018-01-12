@@ -16,7 +16,6 @@ class PostDetailed extends Component{
 
 	render(){
 		let post = this.props.post || [];
-		//.log(post);
 		return(
 			<div className="container">
 				<div className="avatar"></div>

@@ -3,6 +3,7 @@ export const header = {
   'Authorization': '12345'
 }
 
+//GET method
 export const fetchCategories = () => {
   return fetch(`${URL}/categories`, { headers: header })
     .then(res => res.json())
@@ -31,7 +32,6 @@ export const fetchComments = (id) => {
 }
 
 //POST method
-
 export const votePost = (id, option) => {
     return fetch(`${URL}/posts/${id}`, {
         method: 'POST',
@@ -73,3 +73,22 @@ export const addPost = (post) => {
         })
     }).then(res=> res.json())
 }
+
+export const addComment = (comment) => {
+    return fetch (`${URL}/comments`, {
+        method: 'POST',
+        headers: {
+            ...header,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ...comment,
+            timestamp: Date.now()
+        })
+    }).then(res=> res.json())
+}
+
+//editPost - PUT method?
+// deletePost - DELETE method
+//deleteComment -DEL
+//editComment - PUT

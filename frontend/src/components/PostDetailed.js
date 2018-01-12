@@ -13,21 +13,13 @@ class PostDetailed extends Component{
 		this.props.getOnePost(id);
 	}
 
-	currentPostRoute(){
-		const {id} = this.props.match.params;
-		return id;
-	}
-			//const {id} = this.props.match.params;
-		//console.log(id);
-
 	render(){
-		const PostRoute = this.currentPostRoute();
-		console.log(PostRoute);
-		let post = this.props.post.filter(post => post.id === PostRoute);
-		post = post[0] || [];
+		let post = this.props.post || [];
+		console.log(post);
 		return(
 			<div className="container">
 				<div className="avatar"></div>
+
 				<div className="author-post">{post.author}</div>
 		        <div className="date-post">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
 		        <div className="category-post">
@@ -47,16 +39,10 @@ class PostDetailed extends Component{
 	}
 }
 
-function mapStateToProps(post) {
+function mapStateToProps({post}) {
     return post
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getOnePost: (id) => dispatch(getOnePost(id))
-//     }
-// }
-
 export default withRouter(connect(mapStateToProps,
-  { getOnePost }
+  {getOnePost}
 )(PostDetailed));

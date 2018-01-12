@@ -4,6 +4,7 @@ import { getComments, upVoteComment, downVoteComment } from '../actions/comments
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import AddComment from './AddComment'
 
 class Comments extends Component{
 	componentDidMount(){
@@ -46,16 +47,7 @@ class Comments extends Component{
 							</li>
 							)}
 					</ul>
-					<div className="new-comment">
-						<h3>New comment</h3>
-						<form>
-							<input type="text" placeholder="Name"
-							className="author"/>
-							<textarea className="commentarea"
-							placeholder="Your comment..."></textarea>
-						</form>
-						<div type="button" className="comment-button">Comment</div>
-					</div>
+					<AddComment/>
 				</div>
 			</div>
 			)

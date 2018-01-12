@@ -45,7 +45,7 @@ class Comments extends Component{
 					    		<i className="fa fa-trash-o" aria-hidden="true"></i>
 					        </div>
 							</li>
-							)}
+						  )}
 					</ul>
 					<AddComment/>
 				</div>

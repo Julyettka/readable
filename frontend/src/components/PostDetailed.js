@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import {getOnePost} from '../actions/posts'
 import Comments from './Comments'
+import PostStat from './PostStat'
 
 class PostDetailed extends Component{
 	componentDidMount(){
@@ -15,7 +16,7 @@ class PostDetailed extends Component{
 
 	render(){
 		let post = this.props.post || [];
-		console.log(post);
+		//.log(post);
 		return(
 			<div className="container">
 				<div className="avatar"></div>
@@ -26,13 +27,7 @@ class PostDetailed extends Component{
 		        	<span className="category-title">categories:</span> {post.category}</div>
 		        <div className="title-post">{post.title}</div>
 		        <div className="snap-post">{post.body}</div>
-		        <div className="vote-post">
-		        	<i className="fa fa-thumbs-up"></i>
-			        {post.voteScore}
-			        <i className="fa fa-thumbs-down"></i>
-			        <i className="fa fa-pencil" aria-hidden="true"></i>
-			    	<i className="fa fa-trash-o" aria-hidden="true"></i>
-			    </div>
+			    <PostStat />
 		    <Comments />
 		    </div>
 			)

@@ -46,8 +46,17 @@ class Comments extends Component{
 							</li>
 							)}
 					</ul>
+					<div className="new-comment">
+						<h3>New comment</h3>
+						<form>
+							<input type="text" placeholder="Name"
+							className="author"/>
+							<textarea className="commentarea"
+							placeholder="Your comment..."></textarea>
+						</form>
+						<div type="button" className="comment-button">Comment</div>
+					</div>
 				</div>
-
 			</div>
 			)
 	}

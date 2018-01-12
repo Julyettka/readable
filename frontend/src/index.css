@@ -64,7 +64,7 @@ blue color: rgb(2, 179, 228);
   margin: 25px 0 25px 25px;
 }
 
-.post-button, .save-button{
+.post-button, .save-button, .comment-button{
   font-family: sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -87,6 +87,14 @@ blue color: rgb(2, 179, 228);
   box-shadow: 2px 2px 2px #444445;
 }
 
+.comment-button{
+  padding: 12px 12px 16px 20px;
+  width: 80px;
+  height: 12px;
+  margin: 0 0 40px 0;
+  box-shadow: none;
+}
+
 .save-button{
   width: 100px;
   height: 10px;
@@ -104,6 +112,11 @@ blue color: rgb(2, 179, 228);
   background-image: -o-linear-gradient(top, #3bda22, #53940f);
   background-image: linear-gradient(to bottom, #3bda22, #53940f);
   text-decoration: none;
+}
+
+.post-button:active, .save-button:active, .comment-button:active{
+   position: relative;
+  top: 2px;
 }
 
 .upper-nav{
@@ -336,12 +349,12 @@ textarea{
   min-height: 280px;
   outline: none;
   outline-style: none;
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
+  border: none;
 }
 
+.commentarea{
+  min-height: 50px;
+}
 /* One Post Details */
 .container{
     position: relative;
@@ -402,6 +415,10 @@ textarea{
   position: relative;
   padding: 20px 0;
   border-bottom: 1px solid rgba(211,211,211, 0.5);
+}
+
+.new-comment{
+  margin-top: 40px;
 }
 
 /* Add Post*/

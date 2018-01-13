@@ -1,4 +1,4 @@
-import {GET_COMMENTS, UPVOTE_COMMENT, DOWNVOTE_COMMENT} from '../actions/types'
+import {GET_COMMENTS, UPVOTE_COMMENT, DOWNVOTE_COMMENT, ADD_COMMENT} from '../actions/types'
 
 const comments = (state = {}, action) => {
   switch(action.type) {
@@ -8,6 +8,10 @@ const comments = (state = {}, action) => {
     case UPVOTE_COMMENT:
     	return state.map(comment =>
     		(comment.id === action.comment.id) ? comment = action.comment : comment);
+    case ADD_COMMENT:
+        return {
+          ...state, comment: action.comment
+        }
     default:
       return state;
   }

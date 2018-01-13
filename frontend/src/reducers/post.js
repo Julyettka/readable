@@ -13,9 +13,9 @@ const post = (state = {}, action) => {
 			...state,
                 post: action.post
             };
-        case ADD_COMMENT:
-	      let existingComments = action;
-	      console.log(existingComments);
+       //  case ADD_COMMENT:
+	      // let existingComments = action;
+	      // console.log(existingComments);
             // return {
             //     ...state,
             //     [action.comment.parentId]: existingComments.concat(action.comment)

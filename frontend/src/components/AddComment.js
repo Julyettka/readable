@@ -11,6 +11,7 @@ class AddComment extends Component{
 	componentDidMount() {
 	    const { id } = this.props.match.params;
 	    this.props.getOnePost(id);
+	    Modal.setAppElement('body');
   }
 	state = {
 		author: '',
@@ -21,7 +22,6 @@ class AddComment extends Component{
 	}
 
 	onAuthorChange(author){
-		console.log(author.target.value);
  		this.setState({author: author.target.value})
  	}
 
@@ -36,7 +36,7 @@ class AddComment extends Component{
 				timestamp: Date.now(),
 				author: this.state.author,
 				body: this.state.comment,
-				parentId: this.id,
+				parentId: this.props.post.id,
  			}
 
  			this.props.addCommentClick(newComment)
@@ -68,11 +68,12 @@ class AddComment extends Component{
 	  }
 
 	render(){
+		//console.log(this.props.post);
 		return(
 			<div className="new-comment">
 				<Modal
 				  isOpen={this.state.modalIsOpen}
-				   closeTimeoutMS={4}
+				  closeTimeoutMS={4}
 				  onRequestClose={this.closeModal}
 				  className="modal-success"
 				  contentLabel="Modal"

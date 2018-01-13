@@ -3,13 +3,14 @@ import { Component } from 'react'
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addComment } from '../actions/comments'
+import {getOnePost} from '../actions/posts'
 import uuidv1 from 'uuid/v1'
 import Modal from 'react-modal'
-import {getOnePost} from '../actions/posts'
 
 class AddComment extends Component{
 	componentDidMount() {
 	    const { id } = this.props.match.params;
+	    this.props.getOnePost(id);
   }
 	state = {
 		author: '',
@@ -39,12 +40,14 @@ class AddComment extends Component{
  			}
 
  			this.props.addCommentClick(newComment)
- 			.then(() => this.setState({
-	 			success: true,
-	 			author: '',
-	 			comment: '',
-	 			invalid: false
- 			}))
+ 			.then(() => {
+ 				this.setState({
+		 			success: true,
+		 			author: '',
+		 			comment: '',
+		 			invalid: false
+	 			})
+ 			})
  		this.openModal();
  		} else {
 	 		this.setState({
@@ -95,15 +98,15 @@ class AddComment extends Component{
 	}
 }
 
-function mapStateToProps(post){
+function mapStateToProps({post}){
 	return post
 }
 
 function mapDispatchToProps(dispatch){
 	return{
+		getOnePost: (id) => dispatch(getOnePost(id)),
 		addCommentClick: (comment) => dispatch(addComment(comment))
 	}
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)
-	(AddComment));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddComment));

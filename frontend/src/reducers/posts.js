@@ -1,4 +1,5 @@
-import {GET_POSTS, GET_POST_CATEGORY, DOWNVOTE_POST, UPVOTE_POST} from '../actions/types'
+import {GET_POSTS, GET_POST_CATEGORY, DOWNVOTE_POST, UPVOTE_POST,
+	ADD_POST} from '../actions/types'
 
 const posts = (state = [], action) => {
 	switch(action.type){
@@ -13,6 +14,8 @@ const posts = (state = [], action) => {
 		case UPVOTE_POST:
 			return state.map(post=>
 				(post.id === action.post.id) ? post = action.post : post);
+		case ADD_POST:
+		// it adds without reducer here
 		default:
 			return state;
 	}

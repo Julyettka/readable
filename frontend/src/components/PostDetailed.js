@@ -23,7 +23,10 @@ class PostDetailed extends Component{
 				<div className="author-post">{post.author}</div>
 		        <div className="date-post">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
 		        <div className="category-post">
-		        	<span className="category-title">categories:</span> {post.category}</div>
+		        	<span className="category-title">categories: </span>
+		        	<Link style={{textDecoration:'none', color: 'rgb(2, 179, 228)'}}
+		        	to={`/${post.category}`}>{post.category}</Link>
+		        </div>
 		        <div className="title-post">{post.title}</div>
 		        <div className="snap-post">{post.body}</div>
 			    <PostStat />

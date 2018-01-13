@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import {getOnePost, upVotePost, downVotePost} from '../actions/posts'
+import {Link} from 'react-router-dom'
 
 
 class PostStat extends Component{
@@ -26,8 +27,8 @@ class PostStat extends Component{
 				<div className="vote-post">
 		        	<i onClick={() => this.onClickUpVote(post.id)}className="fa fa-thumbs-up"></i>
 			        	{post.voteScore}
-			        	<i onClick={() => this.onClickDownVote(post.id)}className="fa fa-thumbs-down"></i>
-			        <i className="fa fa-pencil" aria-hidden="true"></i>
+			        <i onClick={() => this.onClickDownVote(post.id)}className="fa fa-thumbs-down"></i>
+			        <Link to='/edit'><i className="fa fa-pencil" aria-hidden="true"></i></Link>
 			    	<i className="fa fa-trash-o" aria-hidden="true"></i>
 			    </div>
 			)

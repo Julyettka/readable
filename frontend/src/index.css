@@ -64,7 +64,7 @@ blue color: rgb(2, 179, 228);
   margin: 25px 0 25px 25px;
 }
 
-.post-button, .save-button, .comment-button{
+.post-button, .save-button, .comment-button, .changes-button{
   font-family: sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -85,6 +85,15 @@ blue color: rgb(2, 179, 228);
   text-decoration: none;
   cursor: pointer;
   box-shadow: 2px 2px 2px #444445;
+}
+
+.changes-button{
+  width: 120px;
+  height: 10px;
+  box-shadow: none;
+  text-align: center;
+  padding: 12px 20px 20px 20px;
+  margin: 0 auto;
 }
 
 .comment-button{

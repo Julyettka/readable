@@ -40,8 +40,8 @@ class AddPost extends Component{
  	}
 
  	onPostClick(){
-	if (this.state.title && this.state.category && this.state.author && this.state.body)
-	{
+		if (this.state.title && this.state.category && this.state.author && this.state.body)
+		{
 	    const newPost = {
 	        id: uuidv1(),
 	        timestamp: Date.now(),

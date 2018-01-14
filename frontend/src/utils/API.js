@@ -88,6 +88,18 @@ export const addComment = (comment) => {
     }).then(res=> res.json())
 }
 
+export const editPost = (id, post) => {
+  return fetch(`${URL}/posts/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...header,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(post)
+  })
+  .then(data => data.json())
+}
+
 //editPost - PUT method?
 // deletePost - DELETE method
 //deleteComment -DEL

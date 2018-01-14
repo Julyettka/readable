@@ -20,7 +20,7 @@ class PostStat extends Component{
 	onClickDownVote = (id) => {
 		this.props.downVote(id)
 	}
-
+//to={`/${post.category}/${post.id}`}>
 	render(){
 		let post = this.props.post || [];
 		return(
@@ -28,7 +28,7 @@ class PostStat extends Component{
 		        	<i onClick={() => this.onClickUpVote(post.id)}className="fa fa-thumbs-up"></i>
 			        	{post.voteScore}
 			        <i onClick={() => this.onClickDownVote(post.id)}className="fa fa-thumbs-down"></i>
-			        <Link to='/edit'><i className="fa fa-pencil" aria-hidden="true"></i></Link>
+			        <Link to={`/edit/${post.id}`}><i className="fa fa-pencil" aria-hidden="true"></i></Link>
 			    	<i className="fa fa-trash-o" aria-hidden="true"></i>
 			    </div>
 			)

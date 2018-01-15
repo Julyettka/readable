@@ -6,6 +6,7 @@ import AddPost from './AddPost.js'
 import {Route, Switch} from 'react-router-dom'
 import PostDetailed from './PostDetailed.js'
 import Edit from './Edit.js'
+import EditComment from './EditComment.js'
 
 class App extends Component{
     render(){
@@ -14,8 +15,9 @@ class App extends Component{
               <Switch>
                 <Route exact path='/' component={NavCategories}/>
         	    <Route exact path='/add' component={AddPost}/>
-                <Route exact path='/edit/:id' component={Edit}/>
                 <Route exact path='/:category' component={NavCategories}/>
+
+                <Route exact path='/edit/:id' component={Edit}/>
                 <Route path='/:category/:id' component={PostDetailed}/>
               </Switch>
         </div>)

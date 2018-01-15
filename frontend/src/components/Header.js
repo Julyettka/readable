@@ -21,7 +21,7 @@ class Header extends Component{
 	            		<span className="descr">about everything you wish to know</span>
 	            	</div>
 	            </Link>
-	            {curRoute == 'add' ? '' : <Link to='/add'><button className="post-button">New Post</button></Link>}
+	            {curRoute === 'add' ? '' : <Link to='/add'><button className="post-button">New Post</button></Link>}
 	        </div>
 	    </div>
 	    )

@@ -33,7 +33,8 @@ class Edit extends Component{
 	    category: '',
 	    invalid: false,
 	    success: false,
-	    edited: false
+	    edited: false,
+	    modalIsOpen: false
 	}
 
 	onTitleChange(title){

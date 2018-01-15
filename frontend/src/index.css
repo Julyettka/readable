@@ -446,7 +446,7 @@ textarea{
 
 /* Modals */
 
-.modal-success{
+.modal-success, .modal-edit{
   outline: none;
   margin: 20% auto;
   width: 240px;
@@ -472,4 +472,10 @@ textarea{
   position: absolute;
   top: 10px;
   right: 20px;
+}
+
+.modal-edit{
+  width: 50%;
+  background: white;
+  text-align: left;
 }

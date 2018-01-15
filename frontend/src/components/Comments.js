@@ -5,11 +5,23 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import AddComment from './AddComment'
+import { Link } from 'react-router-dom'
+import Modal from 'react-modal'
+
 
 class Comments extends Component{
 	componentDidMount(){
 		const {id} = this.props.match.params;
 		this.props.getComments(id);
+	}
+
+	state = {
+		author: '',
+		body: '',
+		invalid: false,
+		success: false,
+		edited: false,
+		modalIsOpen: false
 	}
 
 	onClickUpVote = (id) => {
@@ -20,12 +32,46 @@ class Comments extends Component{
     	this.props.downVote(id)
   	}
 
+  	openModal = this.openModal.bind(this);
+	closeModal = this.closeModal.bind(this);
+
+	openModal(){
+	    this.setState({modalIsOpen: true});
+	    console.log(this.state);
+		console.log(this.state.modalIsOpen);
+	  }
+	  closeModal(){
+	  	this.setState({modalIsOpen: false});
+	  	console.log(this.state.modalIsOpen);
+	  }
+
+  	onClickCommentEdit = (id) => {
+  		console.log(id);
+  		this.openModal();
+  		//call Modal
+  		//filter comment details from comments based on id we get
+  		//state that have comments details
+
+  	}
+
+  	onAuthorChange(author){
+ 		this.setState({author: author.target.value})
+ 	}
+
+ 	onCommentChange(text){
+ 		this.setState({comment: text.target.value})
+ 	}
+
+ 	onSaveComment(){
+ 		if(this.state.author && this.state.comment){
+ 		}
+ 	}
+
 	render(){
 		let comments = this.props.comments || [];
-		console.log(comments);
 		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []))
 		let commentsNum = comments.length;
-		console.log(comments);
+		//console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">
@@ -42,7 +88,7 @@ class Comments extends Component{
 								<i onClick={() => this.onClickUpVote(comment.id)}className="fa fa-thumbs-up"></i>
 			        			{comment.voteScore}
 			        			<i onClick={() => this.onClickDownVote(comment.id)}className="fa fa-thumbs-down"></i>
-					        	<i className="fa fa-pencil" aria-hidden="true"></i>
+					        	<i onClick={() => this.onClickCommentEdit(comment.id)} className="fa fa-pencil" aria-hidden="true"></i>
 					    		<i className="fa fa-trash-o" aria-hidden="true"></i>
 					        </div>
 							</li>
@@ -50,6 +96,25 @@ class Comments extends Component{
 					</ul>
 					<AddComment/>
 				</div>
+				<Modal
+				isOpen={this.state.modalIsOpen}
+				onRequestClose={this.closeModal}
+					  className="modal-edit"
+					  contentLabel="Modal">
+					  <h3> Edit your comment</h3>
+					  <form>
+					<input type="text" placeholder="Name"
+					className="author" value={this.state.author}
+					onChange={(e) => this.onAuthorChange(e)}/>
+					<textarea className="commentarea"
+					placeholder="Your comment..." value={this.state.comment}
+					onChange={(e) => this.onCommentChange(e)}></textarea>
+				</form>
+				<div type="button" onClick={this.onSaveComment.bind(this)}
+				className="changes-button">Save changes</div>
+
+					  <button className="close-modal" onClick={this.closeModal}> X </button>
+				</Modal>
 			</div>
 			)
 	}

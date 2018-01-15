@@ -74,11 +74,11 @@ class AddPost extends Component{
 
 	openModal(){
 	    this.setState({modalIsOpen: true});
-		console.log(this.state.modalIsOpen);
+		//console.log(this.state.modalIsOpen);
 	  }
 	  closeModal(){
 	  	this.setState({modalIsOpen: false});
-	  	console.log(this.state.modalIsOpen);
+	  	//console.log(this.state.modalIsOpen);
 	  }
 
 

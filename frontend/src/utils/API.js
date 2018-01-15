@@ -68,7 +68,6 @@ export const addPost = (post) => {
         },
         body: JSON.stringify({
             ...post,
-            // id: uuid(),
             timestamp: Date.now()
         })
     }).then(res=> res.json())
@@ -100,7 +99,18 @@ export const editPost = (id, post) => {
   .then(data => data.json())
 }
 
-//editPost - PUT method?
+export const editComment = (id, comment) => {
+  return fetch(`${URL}/comments/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...header,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(comment)
+  })
+  .then(data => data.json())
+}
+
+
 // deletePost - DELETE method
 //deleteComment -DEL
-//editComment - PUT

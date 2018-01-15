@@ -20,7 +20,7 @@ class PostStat extends Component{
 	onClickDownVote = (id) => {
 		this.props.downVote(id)
 	}
-//to={`/${post.category}/${post.id}`}>
+
 	render(){
 		let post = this.props.post || [];
 		return(

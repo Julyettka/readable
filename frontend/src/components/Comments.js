@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
-import { getComments, upVoteComment, downVoteComment } from '../actions/comments'
+import { getComments, upVoteComment, downVoteComment, editComment } from '../actions/comments'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
@@ -18,6 +18,7 @@ class Comments extends Component{
 	state = {
 		author: '',
 		body: '',
+		commentId: '',
 		invalid: false,
 		success: false,
 		edited: false,
@@ -37,20 +38,21 @@ class Comments extends Component{
 
 	openModal(){
 	    this.setState({modalIsOpen: true});
-	    console.log(this.state);
-		console.log(this.state.modalIsOpen);
 	  }
 	  closeModal(){
 	  	this.setState({modalIsOpen: false});
-	  	console.log(this.state.modalIsOpen);
 	  }
 
   	onClickCommentEdit = (id) => {
-  		console.log(id);
+  		const comments = this.props.comments;
+  		let comment = comments.filter(comment => comment.id === id);
   		this.openModal();
-  		//call Modal
-  		//filter comment details from comments based on id we get
-  		//state that have comments details
+  		this.setState({
+  			author: comment[0].author,
+  			body: comment[0].body,
+  			commentId: id
+  		})
+
 
   	}
 
@@ -59,19 +61,38 @@ class Comments extends Component{
  	}
 
  	onCommentChange(text){
- 		this.setState({comment: text.target.value})
+ 		//console.log(text.target.value);
+ 		this.setState({body: text.target.value})
+ 		//console.log(this.state.body);
  	}
 
- 	onSaveComment(){
- 		if(this.state.author && this.state.comment){
- 		}
+ 	onSaveComment(id){
+ 		console.log(id);
+ 		if(this.state.author && this.state.body){
+ 			console.log(this.state.body)
+  			this.props.editComment(id, {
+  				timestamp: Date.now(),
+  				author: this.state.author,
+  				body: this.state.body
+  			})
+  			.then(() => this.setState({
+	          success: true,
+	          invalid: false
+	        }))
+  		} else {
+	      this.setState({
+	        invalid: true,
+	        success: false
+	      })
+	    }
  	}
 
 	render(){
 		let comments = this.props.comments || [];
+		//console.log(comments);
 		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []))
 		let commentsNum = comments.length;
-		//console.log(comments);
+		//console.log(comment);
 		return(
 			<div>
 				<div className="container-comments">
@@ -107,13 +128,12 @@ class Comments extends Component{
 					className="author" value={this.state.author}
 					onChange={(e) => this.onAuthorChange(e)}/>
 					<textarea className="commentarea"
-					placeholder="Your comment..." value={this.state.comment}
+					placeholder="Your comment..." value={this.state.body}
 					onChange={(e) => this.onCommentChange(e)}></textarea>
 				</form>
-				<div type="button" onClick={this.onSaveComment.bind(this)}
+				<div type="button" onClick={(e) => this.onSaveComment(this.state.commentId)}
 				className="changes-button">Save changes</div>
-
-					  <button className="close-modal" onClick={this.closeModal}> X </button>
+				<button className="close-modal" onClick={this.closeModal}> X </button>
 				</Modal>
 			</div>
 			)
@@ -131,6 +151,7 @@ function mapDispatchToProps (dispatch){
     	getComments: (id) => dispatch(getComments(id)),
         upVote: (id) => dispatch(upVoteComment(id)),
         downVote: (id) => dispatch(downVoteComment(id)),
+        editComment: (id, comment) => dispatch(editComment(id, comment))
     }
 }
 

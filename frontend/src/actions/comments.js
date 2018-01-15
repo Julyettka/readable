@@ -33,10 +33,13 @@ export const addComment = (comment) => dispatch => (
     }))
     );
 
-export const editComment = (comment) => dispatch => (
-    API.editComment(comment)
-    .then(comment => dispatch({
+export const editComment = (id, comment) => dispatch => (
+    API.editComment(id, comment)
+    .then((comment) => {
+        dispatch({
         type: EDIT_COMMENT,
+        id,
         comment
-    }))
-    );
+    })
+    })
+)

@@ -123,7 +123,7 @@ blue color: rgb(2, 179, 228);
   text-decoration: none;
 }
 
-.post-button:active, .save-button:active, .comment-button:active{
+.post-button:active, .save-button:active, .comment-button:active, .changes-button:active{
    position: relative;
   top: 2px;
 }

@@ -15,7 +15,7 @@ class AddComment extends Component{
   }
 	state = {
 		author: '',
-		comment: '',
+		body: '',
 		invalid: false,
 		success: false,
 		modalIsOpen: false
@@ -26,16 +26,16 @@ class AddComment extends Component{
  	}
 
  	onCommentChange(text){
- 		this.setState({comment: text.target.value})
+ 		this.setState({body: text.target.value})
  	}
 
  	onSaveComment(){
- 		if(this.state.author && this.state.comment){
+ 		if(this.state.author && this.state.body){
  			const newComment = {
  				id: uuidv1(),
 				timestamp: Date.now(),
 				author: this.state.author,
-				body: this.state.comment,
+				body: this.state.body,
 				parentId: this.props.post.id,
  			}
 
@@ -44,7 +44,7 @@ class AddComment extends Component{
  				this.setState({
 		 			success: true,
 		 			author: '',
-		 			comment: '',
+		 			body: '',
 		 			invalid: false
 	 			})
  			})
@@ -90,7 +90,7 @@ class AddComment extends Component{
 					className="author" value={this.state.author}
 					onChange={(e) => this.onAuthorChange(e)}/>
 					<textarea className="commentarea"
-					placeholder="Your comment..." value={this.state.comment}
+					placeholder="Your comment..." value={this.state.body}
 					onChange={(e) => this.onCommentChange(e)}></textarea>
 				</form>
 				<div type="button" onClick={this.onSaveComment.bind(this)}

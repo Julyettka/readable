@@ -51,6 +51,7 @@ class Edit extends Component{
 
  	onBodyChange(text){
  		this.setState({body: text.target.value})
+ 		console.log(this.state.body)
  	}
 
  	onPostClick(){
@@ -81,11 +82,11 @@ class Edit extends Component{
 
 	openModal(){
 	    this.setState({modalIsOpen: true});
-		console.log(this.state.modalIsOpen);
+		//console.log(this.state.modalIsOpen);
 	  }
 	  closeModal(){
 	  	this.setState({modalIsOpen: false});
-	  	console.log(this.state.modalIsOpen);
+	  	//console.log(this.state.modalIsOpen);
 	  }
 
 	render(){

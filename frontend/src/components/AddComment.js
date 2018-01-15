@@ -48,6 +48,7 @@ class AddComment extends Component{
 		 			invalid: false
 	 			})
  			})
+
  		this.openModal();
  		} else {
 	 		this.setState({

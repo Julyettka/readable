@@ -15,7 +15,6 @@ const posts = (state = [], action) => {
 			return state.map(post=>
 				(post.id === action.post.id) ? post = action.post : post);
 		case ADD_POST:
-		// it adds without reducer here
 		default:
 			return state;
 	}

@@ -111,6 +111,11 @@ export const editComment = (id, comment) => {
   .then(data => data.json())
 }
 
-
+export const deletePost = (id) => {
+  return fetch(`${URL}/posts/${id}`, { 
+    method: 'DELETE',
+    headers: header
+  })
+}
 // deletePost - DELETE method
 //deleteComment -DEL

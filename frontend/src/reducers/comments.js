@@ -16,7 +16,8 @@ const comments = (state = {}, action) => {
     //filter the comments without the comment I change //slice may be good way to get rid of it?
     // concat comments with action.comment
         console.log(state);
-        console.log(action.comment.body);
+        console.log(action);
+        //console.log(action);
     default:
       return state;
   }

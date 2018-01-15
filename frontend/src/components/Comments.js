@@ -75,16 +75,16 @@ class Comments extends Component{
   				author: this.state.author,
   				body: this.state.body
   			})
-  			.then(() => this.setState({
-	          success: true,
-	          invalid: false
-	        }))
-  		} else {
-	      this.setState({
-	        invalid: true,
-	        success: false
-	      })
-	    }
+  		// 	.then(() => this.setState({
+	   //        success: true,
+	   //        invalid: false
+	   //      }))
+  		// } else {
+	   //    this.setState({
+	   //      invalid: true,
+	   //      success: false
+	   //    })
+	   	}
  	}
 
 	render(){
@@ -146,12 +146,14 @@ function mapStateToProps({comments}){
 	}
 }
 
-function mapDispatchToProps (dispatch){
+function mapDispatchToProps(dispatch){
     return {
     	getComments: (id) => dispatch(getComments(id)),
         upVote: (id) => dispatch(upVoteComment(id)),
         downVote: (id) => dispatch(downVoteComment(id)),
-        editComment: (id, comment) => dispatch(editComment(id, comment))
+        editComment: (id, comment) => { console.log(id);
+        	console.log(comment);
+        	dispatch(editComment(id, comment))}
     }
 }
 

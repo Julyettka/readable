@@ -1,6 +1,6 @@
 import * as API from '../utils/API'
 import {GET_POSTS, GET_POST_CATEGORY, GET_ONE_POST,
-	UPVOTE_POST, DOWNVOTE_POST, ADD_POST, EDIT_POST} from './types'
+	UPVOTE_POST, DOWNVOTE_POST, ADD_POST, EDIT_POST, DELETE_POST} from './types'
 
 const receivePosts = posts => ({
 	type: GET_POSTS,
@@ -66,4 +66,12 @@ export const editPost = (id, post) => dispatch => (
 		})
 	})
 	)
+
+export const deletePost = (id) => dispatch => (
+    API.deletePost(id)
+        .then(() => dispatch({
+            type: DELETE_POST,
+            id
+        }))
+	);
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
 import { withRouter } from 'react-router-dom'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import { getCategories } from '../actions/categories'
 import { addPost } from '../actions/posts'
 import { connect } from 'react-redux'
@@ -83,6 +83,9 @@ class AddPost extends Component{
 
 
 	render(){
+		if(this.state.success){
+			return (<Redirect to='/' />)
+		} else {
 		const categories = this.props.categories || [];
 		const listOpt = categories.map(cat =>
 			<option value={cat.name} key={cat.path}>{cat.name}</option>
@@ -129,6 +132,7 @@ class AddPost extends Component{
 					onClick={this.onPostClick.bind(this)} >Save post</div>
 				</div>
 			</div>)
+		}	
 	}
 }
 

@@ -1,4 +1,4 @@
-import { GET_ONE_POST, UPVOTE_POST, DOWNVOTE_POST, EDIT_POST} from '../actions/types'
+import { GET_ONE_POST, UPVOTE_POST, DOWNVOTE_POST} from '../actions/types'
 
 const post = (state = {}, action) => {
 	switch (action.type){
@@ -13,7 +13,6 @@ const post = (state = {}, action) => {
 			...state,
                 post: action.post
             };
-       case EDIT_POST:
 		default:
 			return state;
 	}

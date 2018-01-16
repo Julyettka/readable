@@ -117,5 +117,10 @@ export const deletePost = (id) => {
     headers: header
   })
 }
-// deletePost - DELETE method
-//deleteComment -DEL
+
+export const deleteComment = (id) => {
+  return fetch(`$(${URL}/comments/${id})`, {
+    method: 'DELETE',
+    headers: header
+  })
+}

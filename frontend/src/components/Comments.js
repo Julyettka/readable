@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
-import { getComments, upVoteComment, downVoteComment, editComment } from '../actions/comments'
+import { getComments, upVoteComment, downVoteComment, 
+	editComment, deleteComment } from '../actions/comments'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
@@ -14,13 +15,13 @@ class Comments extends Component{
 		const {id} = this.props.match.params;
 		this.props.getComments(id);
 	}
-
 	state = {
 		author: '',
 		body: '',
 		commentId: '',
 		invalid: false,
 		success: false,
+		deleted: false,
 		edited: false,
 		modalIsOpen: false
 	}
@@ -52,8 +53,6 @@ class Comments extends Component{
   			body: comment[0].body,
   			commentId: id
   		})
-
-
   	}
 
   	onAuthorChange(author){
@@ -87,12 +86,24 @@ class Comments extends Component{
 	   	}
  	}
 
+ 	onClickDeleteCom(id){
+ 		deleteComment(id);
+ 		const comments = this.props.comments;
+  		let comment = comments.filter(comment => comment.id === id);
+ 		//comment[0].deleted = true;
+ 		this.props.deleteComment(id);
+ 		console.log(comment[0]);
+
+ 	}
+
 	render(){
 		let comments = this.props.comments || [];
 		//console.log(comments);
-		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []))
+		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
+		//console.log(comments);
+		comments = comments.filter(comment => comment.deleted === false);
 		let commentsNum = comments.length;
-		//console.log(comment);
+		//console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">
@@ -110,7 +121,7 @@ class Comments extends Component{
 			        			{comment.voteScore}
 			        			<i onClick={() => this.onClickDownVote(comment.id)}className="fa fa-thumbs-down"></i>
 					        	<i onClick={() => this.onClickCommentEdit(comment.id)} className="fa fa-pencil" aria-hidden="true"></i>
-					    		<i className="fa fa-trash-o" aria-hidden="true"></i>
+					    		<i onClick={() => this.onClickDeleteCom(comment.id)} className="fa fa-trash-o" aria-hidden="true"></i>
 					        </div>
 							</li>
 						  )}
@@ -151,9 +162,10 @@ function mapDispatchToProps(dispatch){
     	getComments: (id) => dispatch(getComments(id)),
         upVote: (id) => dispatch(upVoteComment(id)),
         downVote: (id) => dispatch(downVoteComment(id)),
-        editComment: (id, comment) => { console.log(id);
-        	console.log(comment);
-        	dispatch(editComment(id, comment))}
+        // editComment: (id, comment) => { console.log(id);
+        // 	console.log(comment);
+        // 	dispatch(editComment(id, comment))}},
+        deleteComment: (id) => dispatch(deleteComment(id))
     }
 }
 

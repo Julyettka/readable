@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
-import { getComments, upVoteComment, downVoteComment, 
+import { getComments, upVoteComment, downVoteComment,
 	editComment, deleteComment } from '../actions/comments'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -88,11 +88,13 @@ class Comments extends Component{
 
  	onClickDeleteCom(id){
  		deleteComment(id);
- 		const comments = this.props.comments;
+ 		let comments = this.props.comments;
+ 		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
+  		console.log(comments);
   		let comment = comments.filter(comment => comment.id === id);
- 		//comment[0].deleted = true;
+  		//console.log(comment[0].deleted);
  		this.props.deleteComment(id);
- 		console.log(comment[0]);
+ 		comment[0].deleted = true;
 
  	}
 
@@ -102,6 +104,7 @@ class Comments extends Component{
 		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
 		//console.log(comments);
 		comments = comments.filter(comment => comment.deleted === false);
+		console.log(comments);
 		let commentsNum = comments.length;
 		//console.log(comments);
 		return(

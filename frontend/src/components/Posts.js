@@ -23,8 +23,6 @@ class Posts extends Component{
 	onClickDownVote = (id) => {
 		this.props.downVote(id)
 	}
-
-
 	render(){
 
 		console.log(this.props.sort);

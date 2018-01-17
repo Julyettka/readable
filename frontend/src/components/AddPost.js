@@ -96,7 +96,7 @@ class AddPost extends Component{
 		        <div>
 		          	<Modal
 					  isOpen={this.state.modalIsOpen}
-					   closeTimeoutMS={4}
+					  closeTimeoutMS={4}
 					  onRequestClose={this.closeModal}
 					  className="modal-success"
 					  contentLabel="Modal"

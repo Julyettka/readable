@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import AddComment from './AddComment'
-import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 
 
@@ -91,10 +90,10 @@ class Comments extends Component{
  		let comments = this.props.comments;
  		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
   		console.log(comments);
-  		let comment = comments.filter(comment => comment.id === id);
+  		//let comment = comments.filter(comment => comment.id === id);
   		//console.log(comment[0].deleted);
  		this.props.deleteComment(id);
- 		comment[0].deleted = true;
+ 		//comment[0].deleted = true;
 
  	}
 
@@ -102,11 +101,8 @@ class Comments extends Component{
 		let comments = this.props.comments || [];
 		//console.log(comments);
 		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
-		//console.log(comments);
-		comments = comments.filter(comment => comment.deleted === false);
-		console.log(comments);
+		//comments = comments.filter(comment => comment.deleted === false);
 		let commentsNum = comments.length;
-		//console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">
@@ -165,9 +161,7 @@ function mapDispatchToProps(dispatch){
     	getComments: (id) => dispatch(getComments(id)),
         upVote: (id) => dispatch(upVoteComment(id)),
         downVote: (id) => dispatch(downVoteComment(id)),
-        // editComment: (id, comment) => { console.log(id);
-        // 	console.log(comment);
-        // 	dispatch(editComment(id, comment))}},
+        editComment: (id, comment) => dispatch(editComment(id, comment)),
         deleteComment: (id) => dispatch(deleteComment(id))
     }
 }

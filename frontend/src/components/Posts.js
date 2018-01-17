@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import {getPosts, upVotePost, downVotePost} from '../actions/posts'
+import { getPosts, upVotePost, downVotePost } from '../actions/posts'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
@@ -25,7 +25,6 @@ class Posts extends Component{
 
 	render(){
 		const categoryRoute = this.currentCategoryRoute();
-		//console.log(categoryRoute);
 		let posts = Object.keys(this.props.posts).map((data)=>(this.props.posts[data] || []))
 		if (categoryRoute){
 			posts = posts.filter(post => post.category === categoryRoute);

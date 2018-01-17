@@ -1,10 +1,8 @@
 import React from 'react'
 import { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import Modal from 'react-modal'
-import uuidv1 from 'uuid/v1'
 import { getCategories } from '../actions/categories'
 import { getOnePost, editPost } from '../actions/posts'
 
@@ -14,7 +12,7 @@ class Edit extends Component{
 		const { id } = this.props.match.params;
 	    this.props.getOnePost(id)
 	    .then(() => {
-        const { title, author, body, category, voteScore } = this.props.post.post
+        const { title, author, body, category } = this.props.post.post
         this.setState({
           id,
           title,
@@ -94,7 +92,6 @@ class Edit extends Component{
 		const listOpt = categories.map(cat =>
 			<option value={cat.name} key={cat.path}>{cat.name}</option>
 			)
-		let post = this.props.post.post || [];
 		return(
 			<div>
 		        <div>

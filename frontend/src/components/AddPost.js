@@ -1,7 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
 import { withRouter } from 'react-router-dom'
-import {Link, Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 import { getCategories } from '../actions/categories'
 import { addPost } from '../actions/posts'
 import { connect } from 'react-redux'
@@ -11,6 +11,7 @@ import Modal from 'react-modal'
 class AddPost extends Component{
 	componentDidMount(){
 		this.props.getCategories();
+		Modal.setAppElement('body');
 	}
 
 	state = {
@@ -132,7 +133,7 @@ class AddPost extends Component{
 					onClick={this.onPostClick.bind(this)} >Save post</div>
 				</div>
 			</div>)
-		}	
+		}
 	}
 }
 

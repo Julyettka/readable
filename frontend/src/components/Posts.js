@@ -25,10 +25,10 @@ class Posts extends Component{
 	}
 	render(){
 
-		console.log(this.props.sort);
+		//console.log(this.props.sort);
 		const categoryRoute = this.currentCategoryRoute();
 		let posts = Object.keys(this.props.posts).map((data)=>(this.props.posts[data] || []))
-		console.log(posts);
+		//console.log(posts);
 		if (categoryRoute){
 			posts = posts.filter(post => post.category === categoryRoute);
 		}
@@ -41,12 +41,12 @@ class Posts extends Component{
 			posts.sort(function(a, b)
 				{return b.voteScore - a.voteScore});
 		}
-		
+
 		if (this.props.sort === 'time'){
 			posts.sort(function(a, b)
 				{return b.timestamp - a.timestamp});
 		}
-		
+
 		return(
 			<div>
 			<Sorting/>
@@ -80,7 +80,7 @@ class Posts extends Component{
 
 function mapStateToProps({posts, sort}){
 	return {
-		posts, 
+		posts,
 		sort: sort.sort
 	}
 }

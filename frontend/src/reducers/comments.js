@@ -17,7 +17,8 @@ const comments = (state = {}, action) => {
         console.log(state);
         console.log(action);
     case DELETE_COMMENT:
-        return state;
+        let comToDel = action.comment.id;
+        return state.filter(comment => comment.id !== comToDel);
     default:
       return state;
   }

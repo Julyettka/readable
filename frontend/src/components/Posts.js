@@ -2,14 +2,19 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getPosts, upVotePost, downVotePost, changeSort } from '../actions/posts'
+import { getPosts, upVotePost, downVotePost, changeSort, deletePost } from '../actions/posts'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import Sorting from './Sorting'
+import PostStat from './PostStat'
 
 class Posts extends Component{
 	componentDidMount(){
 		this.props.getPosts();
+	}
+
+	state = {
+		deleted: false
 	}
 	currentCategoryRoute(){
 		const {category} = this.props.match.params;
@@ -22,6 +27,15 @@ class Posts extends Component{
 
 	onClickDownVote = (id) => {
 		this.props.downVote(id)
+	}
+
+	onClickDelete = (id) => {
+		this.props.deletePost(id)
+		.then(() => {
+        this.setState({
+          deleted: true
+        })
+      })
 	}
 	render(){
 
@@ -47,11 +61,13 @@ class Posts extends Component{
 				{return b.timestamp - a.timestamp});
 		}
 
+		posts = posts.filter(post => post.deleted === false)
+		console.log(posts)
 		return(
 			<div>
 			<Sorting/>
 				<ul className="container-plate">
-				{posts.map((post) =>
+					{ posts.map((post) =>
 					<li key={post.id} className="post-plate">
 					<Link style={{textDecoration:'none', color: 'black'}}
 					to={`/${post.category}/${post.id}`}>
@@ -61,10 +77,12 @@ class Posts extends Component{
 				        <div className="snap">{post.body}</div>
 		    		</Link>
 				        <Link to={`/${post.category}`}><div className="category">{post.category}</div></Link>
-				        <div className="vote">
+				        <div className="stat">
 				        	<i onClick={() => this.onClickUpVote(post.id)}className="fa fa-thumbs-up"></i>
 				        	{post.voteScore}
 				        	<i onClick={() => this.onClickDownVote(post.id)}className="fa fa-thumbs-down"></i>
+				        	<Link to={`/edit/${post.id}`}><i className="fa fa-pencil" aria-hidden="true"></i></Link>
+			    			<i onClick={() => this.onClickDelete(post.id)} className="fa fa-trash-o" aria-hidden="true"></i>
 				        </div>
 		    		</li>
 		    		)}
@@ -90,7 +108,8 @@ function mapDispatchToProps(dispatch){
 		getPosts: () => dispatch(getPosts()),
 		upVote: (id) => dispatch(upVotePost(id)),
         downVote: (id) => dispatch(downVotePost(id)),
-        changeSort: (value) => dispatch(changeSort(value))
+        changeSort: (value) => dispatch(changeSort(value)),
+        deletePost: (id) => dispatch(deletePost(id))
 	}
 }
 

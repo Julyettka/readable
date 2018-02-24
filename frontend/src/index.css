@@ -317,10 +317,10 @@ blue color: rgb(2, 179, 228);
   color: black;
 }
 
-.vote{
+.stat{
   position: absolute;
   bottom: 15px;
-  left: 70%;
+  left: 55%;
 }
 
 /* AppPost*/

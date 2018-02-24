@@ -6,7 +6,7 @@ import Modal from 'react-modal'
 import { getCategories } from '../actions/categories'
 import { getOnePost, editPost } from '../actions/posts'
 
-class Edit extends Component{
+class EditPost extends Component{
 	componentDidMount(){
 		this.props.getCategories();
 		const { id } = this.props.match.params;
@@ -150,4 +150,4 @@ function mapDispatchToProps(dispatch){
 
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Edit));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditPost));

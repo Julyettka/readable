@@ -41,7 +41,7 @@ class PostStat extends Component{
 		return(
 				<div className="vote-post">
 		        	<i onClick={() => this.onClickUpVote(post.id)}className="fa fa-thumbs-up"></i>
-			        	{post.voteScore}
+			        	{post.voteScore }
 			        <i onClick={() => this.onClickDownVote(post.id)}className="fa fa-thumbs-down"></i>
 			        <Link to={`/edit/${post.id}`}><i className="fa fa-pencil" aria-hidden="true"></i></Link>
 			    	<i onClick={() => this.onClickDelete(post.id)} className="fa fa-trash-o" aria-hidden="true"></i>

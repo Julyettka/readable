@@ -14,7 +14,7 @@ class Sorting extends Component{
   		return(
 			<div className="sort">
 				<span>Sort by </span>
-				<select name="sort" onChange={this.onChangeSort}>
+				<select className="cat-select" name="sort" onChange={this.onChangeSort}>
 					<option value="popular">popular</option>
 					<option value="not_popular">not popular</option>
 					<option value="time">latest</option>

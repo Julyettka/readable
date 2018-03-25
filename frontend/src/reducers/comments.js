@@ -9,10 +9,15 @@ const comments = (state = {}, action) => {
     case UPVOTE_COMMENT:
       return state.map(comment =>
         (comment.id === action.comment.id) ? comment = action.comment : comment);
-    case ADD_COMMENT:
-        return {
-          ...state, comment: action.comment
-        }
+    //case ADD_COMMENT:
+    // console.log(action.comment)
+    // var obj = Object.assign({}, state, action.comment);
+    //     return {
+    //       obj
+    //       //...state, comment: action.comment
+    //       //state.concat(comment: action.comment)
+    //     }
+
     case EDIT_COMMENT:
         console.log(state);
         console.log(action);

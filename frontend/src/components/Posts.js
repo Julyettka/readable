@@ -1,4 +1,4 @@
- import React from 'react'
+import React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
@@ -30,6 +30,7 @@ class Posts extends Component{
 	}
 
 	onClickDelete = (id) => {
+		console.log(id)
 		this.props.deletePost(id)
 		.then(() => {
         this.setState({
@@ -62,7 +63,7 @@ class Posts extends Component{
 		}
 
 		posts = posts.filter(post => post.deleted === false)
-		console.log(posts)
+		//console.log(posts)
 		return(
 			<div>
 			<Sorting/>

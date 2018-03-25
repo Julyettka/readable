@@ -432,6 +432,19 @@ textarea{
 }
 
 /* Add Post*/
+
+select{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+}
+
 .cat-select{
   margin-top: 10px;
   width: 140px;
@@ -442,7 +455,17 @@ textarea{
   background: transparent;
   font-size: 1em;
   padding: 2px 10px;
-  border-bottom: 1px solid rgba(211,211,211, 0.5);
+  border-bottom: 1px solid rgba(2, 179, 228, 0.5);
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgb(2, 179, 228) 50%),
+    linear-gradient(135deg, rgb(2, 179, 228) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(0.5em + 2px),
+    calc(100% - 15px) calc(0.5em + 2px);
+  background-size:
+    6px 8px,
+    6px 8px;
+  background-repeat: no-repeat;
 }
 
 /* Modals */

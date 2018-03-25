@@ -1,4 +1,4 @@
-import { GET_ONE_POST, UPVOTE_POST, DOWNVOTE_POST} from '../actions/types'
+import { GET_ONE_POST, UPVOTE_POST, DOWNVOTE_POST, ADD_COMMENT} from '../actions/types'
 
 const post = (state = {}, action) => {
 	switch (action.type){
@@ -13,6 +13,15 @@ const post = (state = {}, action) => {
 			...state,
                 post: action.post
             };
+        case ADD_COMMENT:
+        console.log(action.comment)
+      // return {
+      //   ...state,
+      //   post: {
+      //     ...state.post,
+      //     comments: [...state.post.comments, action.comment]
+      //   }
+      // }
 		default:
 			return state;
 	}

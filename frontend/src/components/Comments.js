@@ -88,19 +88,13 @@ class Comments extends Component{
  	onClickDeleteCom(id){
  		deleteComment(id);
  		let comments = this.props.comments;
-  		console.log(comments);
  		comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
-  		//let comment = comments.filter(comment => comment.id === id);
-  		//console.log(comment[0].deleted);
  		this.props.deleteComment(id);
- 		//comment[0].deleted = true;
 
  	}
 
 	render(){
-		//console.log(this.props.comments);
 		let comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
-		//comments = comments.filter(comment => comment.deleted === false);
 		let commentsNum = comments.length;
 		return(
 			<div>

@@ -13,15 +13,6 @@ const post = (state = {}, action) => {
 			...state,
                 post: action.post
             };
-        case ADD_COMMENT:
-        console.log(action.comment)
-      // return {
-      //   ...state,
-      //   post: {
-      //     ...state.post,
-      //     comments: [...state.post.comments, action.comment]
-      //   }
-      // }
 		default:
 			return state;
 	}

@@ -13,6 +13,7 @@ export const getComments = (id) => dispatch => (
 export const upVoteComment = (id) => dispatch => (
     API.voteComment(id, "upVote")
         .then(comment => dispatch({
+
             type: UPVOTE_COMMENT,
             comment
         }))
@@ -33,16 +34,16 @@ export const addComment = (comment) => dispatch => (
     }))
     );
 
-export const editComment = (id, comment) => dispatch => (
-    API.editComment(id, comment)
-    .then((comment) => {
-        dispatch({
+
+export const editComment = (id, edited) => dispatch => (
+    API.editComment(id, edited)
+    .then(comment => dispatch({
         type: EDIT_COMMENT,
         id,
-        comment
-    })
-    })
-);
+        comment: edited
+    }))
+    );
+
 
 export const deleteComment = (id) => dispatch => (
     API.deleteComment(id)

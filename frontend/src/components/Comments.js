@@ -59,29 +59,29 @@ class Comments extends Component{
  	}
 
  	onCommentChange(text){
- 		//console.log(text.target.value);
  		this.setState({body: text.target.value})
- 		//console.log(this.state.body);
+
  	}
 
  	onSaveComment(id){
- 		console.log(id);
  		if(this.state.author && this.state.body){
- 			console.log(this.state.body)
-  			this.props.editComment(id, {
+ 			const commentEdit = {
+ 				id,
+ 				parentId: this.props.match.params.id,
   				timestamp: Date.now(),
   				author: this.state.author,
   				body: this.state.body
-  			})
-  		// 	.then(() => this.setState({
-	   //        success: true,
-	   //        invalid: false
-	   //      }))
-  		// } else {
-	   //    this.setState({
-	   //      invalid: true,
-	   //      success: false
-	   //    })
+  			}
+  			this.props.editCurrentComment(id, commentEdit)
+  			.then(() => this.setState({
+	          success: true,
+	          invalid: false
+	        }))
+  		} else {
+	      this.setState({
+	        invalid: true,
+	        success: false
+	      })
 	   	}
  	}
 
@@ -92,10 +92,10 @@ class Comments extends Component{
  		this.props.deleteComment(id);
 
  	}
-
 	render(){
 		let comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
 		let commentsNum = comments.length;
+		//console.log(comments);
 		return(
 			<div>
 				<div className="container-comments">
@@ -154,10 +154,9 @@ function mapDispatchToProps(dispatch){
     	getComments: (id) => dispatch(getComments(id)),
         upVote: (id) => dispatch(upVoteComment(id)),
         downVote: (id) => dispatch(downVoteComment(id)),
-        editComment: (id, comment) => dispatch(editComment(id, comment)),
+        editCurrentComment: (id, comment) => dispatch(editComment(id, comment)),
         deleteComment: (id) => dispatch(deleteComment(id))
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps
-)(Comments));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Comments));

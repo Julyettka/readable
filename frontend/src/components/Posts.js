@@ -63,7 +63,7 @@ class Posts extends Component{
 		}
 
 		posts = posts.filter(post => post.deleted === false)
-		//console.log(posts)
+		console.log(posts)
 		return(
 			<div>
 			<Sorting/>

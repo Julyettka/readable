@@ -13,6 +13,7 @@ export const fetchCategories = () => {
 export const fetchPosts = () => {
 	return fetch(`${URL}/posts`, {headers: header})
 	.then(res => res.json());
+  //.then(posts => posts.filter(post => !post.deleted));
 }
 
 export const fetchPostsbyCategory = (category) => {

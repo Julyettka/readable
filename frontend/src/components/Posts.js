@@ -6,15 +6,11 @@ import { getPosts, upVotePost, downVotePost, changeSort, deletePost } from '../a
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import Sorting from './Sorting'
-import PostStat from './PostStat'
+import CommentsStat from './CommentsStat'
 
 class Posts extends Component{
 	componentDidMount(){
 		this.props.getPosts();
-	}
-
-	state = {
-		deleted: false
 	}
 	currentCategoryRoute(){
 		const {category} = this.props.match.params;
@@ -30,17 +26,11 @@ class Posts extends Component{
 	}
 
 	onClickDelete = (id) => {
-		console.log(id)
 		this.props.deletePost(id)
 		.then(() => {
-        this.setState({
-          deleted: true
-        })
       })
 	}
 	render(){
-
-		//console.log(this.props.sort);
 		const categoryRoute = this.currentCategoryRoute();
 		let posts = Object.keys(this.props.posts).map((data)=>(this.props.posts[data] || []))
 		//console.log(posts);
@@ -62,8 +52,6 @@ class Posts extends Component{
 				{return b.timestamp - a.timestamp});
 		}
 
-		posts = posts.filter(post => post.deleted === false)
-		console.log(posts)
 		return(
 			<div>
 			<Sorting/>
@@ -73,6 +61,7 @@ class Posts extends Component{
 					<Link style={{textDecoration:'none', color: 'black'}}
 					to={`/${post.category}/${post.id}`}>
 				        <div className="date">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
+				        <CommentsStat id={post.id}/>
 				        <div className="title">{post.title}</div>
 				        <div className="author">by {post.author}</div>
 				        <div className="snap">{post.body}</div>

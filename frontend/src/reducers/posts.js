@@ -1,5 +1,5 @@
 import {GET_POSTS, GET_POST_CATEGORY, DOWNVOTE_POST, UPVOTE_POST,
-	ADD_POST} from '../actions/types'
+	ADD_POST, DELETE_POST} from '../actions/types'
 
 const posts = (state = [], action) => {
 	switch(action.type){
@@ -15,6 +15,9 @@ const posts = (state = [], action) => {
 			return state.map(post=>
 				(post.id === action.post.id) ? post = action.post : post);
 		case ADD_POST:
+			return state;
+		case DELETE_POST:
+			return state.filter(post => post.id !== action.id);
 		default:
 			return state;
 	}

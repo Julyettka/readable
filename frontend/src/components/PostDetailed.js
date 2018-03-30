@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 import {getOnePost} from '../actions/posts'
 import Comments from './Comments'
 import PostStat from './PostStat'
+import NotFound from './NotFound'
 
 class PostDetailed extends Component{
 	componentDidMount(){
@@ -16,10 +17,11 @@ class PostDetailed extends Component{
 
 	render(){
 		let post = this.props.post || [];
+		console.log((Object.keys(post).length));
+		if (Object.keys(post).length) {
 		return(
 			<div className="container">
 				<div className="avatar"></div>
-
 				<div className="author-post">{post.author}</div>
 		        <div className="date-post">{moment(post.timestamp).format("MMM-DD-YYYY hh:mma")}</div>
 		        <div className="category-post">
@@ -33,6 +35,7 @@ class PostDetailed extends Component{
 		    <Comments />
 		    </div>
 			)
+		} else{return (<NotFound/>)}
 	}
 }
 

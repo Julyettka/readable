@@ -394,6 +394,16 @@ textarea{
   display:inline-block;
 }
 
+.img-404{
+  width: 380px;
+  height: 251px;
+  background-image: url('./img/rarity.svg');
+  background-size: 380px 251px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: hidden;
+}
+
 .avatar-comment{
   width: 50px;
   height: 50px;

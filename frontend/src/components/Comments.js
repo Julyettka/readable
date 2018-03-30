@@ -92,9 +92,7 @@ class Comments extends Component{
 
  	}
 	render(){
- 		console.log(this.props.comments);
 		let comments = Object.keys(this.props.comments).map((data)=>(this.props.comments[data] || []));
-		console.log(comments);
 		let commentsNum = comments.length;
 		return(
 			<div>

@@ -10,13 +10,10 @@ const comments = (state = {}, action) => {
       return state.map(comment =>
         (comment.id === action.comment.id) ? comment = action.comment : comment);
     case ADD_COMMENT:
-      let newComment = Object.assign({}, state);
-      state.concat(newComment);
+      return state.concat(action.comment);
     case EDIT_COMMENT:
       let comToEdit = action.id;
-     state =state.filter(comment => comment.id !== comToEdit);
-     state.push(action.comment);
-     return state;
+     return (state.filter(comment => comment.id !== comToEdit)).concat(action.comment);
     case DELETE_COMMENT:
         let comToDel = action.comment.id;
         return state.filter(comment => comment.id !== comToDel);

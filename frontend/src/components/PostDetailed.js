@@ -17,7 +17,6 @@ class PostDetailed extends Component{
 
 	render(){
 		let post = this.props.post || [];
-		console.log((Object.keys(post).length));
 		if (Object.keys(post).length) {
 		return(
 			<div className="container">

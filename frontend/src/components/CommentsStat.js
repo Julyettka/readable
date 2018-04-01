@@ -12,7 +12,6 @@ class CommentsStat extends Component{
 	render(){
 
  		let count = this.props.comments;
- 		//console.log(count.length);
 		return (
 			<span className="comment-details">
 			{count.length} Comment
@@ -22,7 +21,9 @@ class CommentsStat extends Component{
 }
 
 function mapStateToProps({comments}) {
-    return {comments: comments}
+    return {
+    	comments
+    }
 }
 
 export default withRouter(connect(mapStateToProps,

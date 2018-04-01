@@ -77,6 +77,7 @@ class Comments extends Component{
 	          success: true,
 	          invalid: false
 	        }))
+	        this.closeModal();
   		} else {
 	      this.setState({
 	        invalid: true,

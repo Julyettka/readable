@@ -1,0 +1,6 @@
+## Bugs
+Quantity of comments - not correct number shown
+
+## Improvements
+ask whether user is sure that do delete comment
+make input forms user-friendly warnings (for instance, red borders) when not all values inserted

@@ -2,6 +2,7 @@
 Readable is a dynamic social web application using the state management features of Redux and React.
 Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments, as well as to edit and delete them.
 ![posts](readme_pics/all.png)
+Page of one posts
 ![one post](readme_pics/one_post.png)
 
 # Getting Started

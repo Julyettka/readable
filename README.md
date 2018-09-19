@@ -1,6 +1,8 @@
 # Project Overview
 Readable is a dynamic social web application using the state management features of Redux and React.
-Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments, as well as to edit and delete posts and comments.
+Users are able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments, as well as to edit and delete them.
+![posts](readme_pics/all.png)
+![one post](readme_pics/one_post.png)
 
 # Getting Started
 0. This app requires npm to build, if Node and npm are not installed on your device, you should install it first. More info can be found [here](https://docs.npmjs.com/getting-started/installing-node)

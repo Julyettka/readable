@@ -1,9 +1,12 @@
 # Project Overview
+This project is the second task of Udacity Nanodegree Program on React & Redux.
 Readable is a dynamic social web application using the state management features of Redux and React.
 Users are able to post content to predefined categories.
+
 ![posts](readme_pics/all.png)
 
 Page of one posts
+
 Users are able to comment on their posts and other users' posts, and vote on posts and comments, as well as to edit and delete them
 ![one post](readme_pics/one_post.png)
 
